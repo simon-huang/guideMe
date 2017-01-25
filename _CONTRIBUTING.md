@@ -1,3 +1,5 @@
+//NOTE: Until further notice, we will be using merges until we understand what rebase is.
+
 # Contributing
 
 ## General Workflow
