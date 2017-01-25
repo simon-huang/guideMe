@@ -19,28 +19,46 @@ Once the project moves into development, the press release can be used as a touc
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
 
+  GuideMe
+
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
+  Connecting you with real locals.
+
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
+  Allows travelers to experience a destination through the eyes of a local.
+
 ## Problem ##
   > Describe the problem your product solves.
-  guide is sucks. They guide us to a shop where they can make more money.
+  
+  Existing guide services are too commericial and involve third-party companies that aren't connected to your experience and care more about making money than memories.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
 
+  We directly connect travelers to guides with reviews.
+
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+
+  "We are the AirBnB of trave."
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
 
+  Go to our website to browse trips near you and sign up to book. 
+
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
 
+  "It's not like other tours. It provives an authentic experience"
+
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+
+Sign up now at blah blah blah!
+
