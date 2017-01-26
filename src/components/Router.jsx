@@ -1,3 +1,8 @@
+import React from 'react';
+import App from './App.jsx';
+import {render} from 'react-dom';
+import BookPage from './BookPage.jsx';
+
 class Router extends React.Component {
 
   constructor (props) {
@@ -23,3 +28,5 @@ class Router extends React.Component {
   
 
 };
+
+export default Router;
