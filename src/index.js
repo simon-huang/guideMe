@@ -67,4 +67,4 @@ var list = [
   } 
 ];
 // TODO: Render the `App` component to the DOM
-ReactDOM.render(<App images={list}/>, document.getElementById('root'));
+ReactDOM.render(<Router images={list}/>, document.getElementById('root'));

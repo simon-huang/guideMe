@@ -4,10 +4,23 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      images: props.images,
-      url: '/'
+      images: [{
+          image:  'https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg',
+          title: 'Swimming under the Golden Gate Bridge',
+          tourGuide: 'Mark',
+          price: '$125',
+          time: '2 hours',
+          rating: 5.0,
+          numberOfReviews: 27,
+          id: 1,
+          description: 'Loemkjfadhljkadshfkljadshgkljadshgkljadhglkhadgkljhadfklghadflkjsadfdsafasdgsdgadsggh'
+  }]
     };
 
+  }
+
+  componentDidMount() {
+    this.setState({images: window.list});
   }
 
 
@@ -17,7 +30,7 @@ class App extends React.Component {
       <div className="main">
         <div className="row">
           <div className="col-md-3 col-md-offset-3" >
-            <a href='/tour'><img src={this.state.images[0].image} /> </a>
+           <img src={this.state.images[0].image} onClick={this.props.handleRouting} />
           </div>
           <div className="col-md-3">
             <a href='/tour'><img src={this.state.images[0].image} /> </a>
