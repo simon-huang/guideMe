@@ -10,3 +10,5 @@ class BookPage extends React.Component {
     );
   }
 }
+
+window.BookPage = BookPage;
