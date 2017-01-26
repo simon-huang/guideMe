@@ -4,7 +4,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      images: props.images
+      images: props.images,
+      url: '/'
     };
 
   }
