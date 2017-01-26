@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "babel . --out-dir public --presets=es2015,react --ignore=node_modules,public --source-maps inline --watch",
-    //"test": "live-server --open=./SpecRunner.html --port=8081",
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon app.js"
   },
