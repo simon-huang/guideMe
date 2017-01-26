@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel . --out-dir public --presets=es2015,react --ignore=node_modules,public --source-maps inline --watch",
-    "start": "nodemon app.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "babel-preset-react": "^6.22.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
+    "morgan": "^1.7.0",
     "sinon": "^1.17.7"
   }
 }
