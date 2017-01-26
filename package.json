@@ -1,0 +1,40 @@
+{
+  "name": "operaticcacti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel . --out-dir public --presets=es2015,react --ignore=node_modules,public --source-maps inline --watch",
+    //"test": "live-server --open=./SpecRunner.html --port=8081",
+    "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Taehoonjth/OperaticCacti.git"
+  },
+  "author": "Alison, Mark, Will",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OperaticCacti/OperaticCacti.git"
+  },
+  "homepage": "https://github.com/Taehoonjth/OperaticCacti#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.4",
+    "mysql": "^2.13.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7"
+  }
+}
