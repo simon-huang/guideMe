@@ -20,21 +20,21 @@ class App extends React.Component {
             <a href='/tour'><img src={this.state.images[0].image} /> </a>
           </div>
           <div className="col-md-3">
-            <h1> Hello! </h1>
+            <a href='/tour'><img src={this.state.images[0].image} /> </a>
           </div>
           <div className="col-md-3">
-            <h1> Hello! </h1>
+            <a href='/tour'><img src={this.state.images[0].image} /> </a>
           </div>
         </div>
         <div className="row">
           <div className="col-md-3 col-md-offset-3">
-            <h1> Hello! </h1>
+            <a href='/tour'><img src={this.state.images[0].image} /> </a>
           </div>
           <div className="col-md-3">
-            <h1> Hello! </h1>
+            <a href='/tour'><img src={this.state.images[0].image} /> </a>
           </div>
           <div className="col-md-3">
-            <h1> Hello! </h1>
+            <a href='/tour'><img src={this.state.images[0].image} /> </a>
           </div>
         </div>
 
