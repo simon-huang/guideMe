@@ -1,7 +1,0 @@
-"use strict";
-
-module.exports = {
-    "extends": "standard",
-    "plugins": ["standard", "promise"]
-};
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy5lc2xpbnRyYy5qcyJdLCJuYW1lcyI6WyJtb2R1bGUiLCJleHBvcnRzIl0sIm1hcHBpbmdzIjoiOztBQUFBQSxPQUFPQyxPQUFQLEdBQWlCO0FBQ2IsZUFBVyxVQURFO0FBRWIsZUFBVyxDQUNQLFVBRE8sRUFFUCxTQUZPO0FBRkUsQ0FBakIiLCJmaWxlIjoiLmVzbGludHJjLmpzIiwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSB7XG4gICAgXCJleHRlbmRzXCI6IFwic3RhbmRhcmRcIixcbiAgICBcInBsdWdpbnNcIjogW1xuICAgICAgICBcInN0YW5kYXJkXCIsXG4gICAgICAgIFwicHJvbWlzZVwiXG4gICAgXVxufTsiXX0=
