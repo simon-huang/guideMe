@@ -7,13 +7,13 @@ module.exports = {
   context: __dirname,
 
   entry: {
-    javascript: './src/index.js',
+    javascript: './client/index.js',
     html: './public/index.html'
   },
 
   output: {
     filename: 'index.js',
-    path: __dirname + '/public/src'
+    path: __dirname + '/public/client'
   },
   
   resolve: {

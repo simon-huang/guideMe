@@ -1,7 +1,7 @@
 window.list = [
   {
     image:  'https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg',
-    title: 'Swimming under the Golden Gate Bridge',
+    title: '',
     tourGuide: 'Mark',
     price: '$125',
     time: '2 hours',
@@ -10,6 +10,7 @@ window.list = [
     id: 1,
     description: 'Loemkjfadhljkadshfkljadshgkljadshgkljadhglkhadgkljhadfklghadflkjsadfdsafasdgsdgadsggh'
   },
+  `image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`
   {
     image:  'https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg',
     title: 'Swimming under the Golden Gate Bridge',

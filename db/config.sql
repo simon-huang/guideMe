@@ -10,6 +10,10 @@
 -- 
 -- ---
 
+DROP DATABASE IF EXISTS `guideme`;
+
+CREATE DATABASE `guideme`;
+
 USE guideme;
 
 DROP TABLE IF EXISTS `Users`;
@@ -95,10 +99,32 @@ ALTER TABLE `travelers_tours` ADD FOREIGN KEY (id_Tours) REFERENCES `Tours` (`id
 -- Test Data
 -- ---
 
--- INSERT INTO `Users` (`id`,`username`,`password`) VALUES
--- ('','','');
--- INSERT INTO `Tours` (`id`,`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
--- ('','','','','','','','','');
+INSERT INTO `Users` (`username`,`password`) VALUES
+('mark','mark');
+
+INSERT INTO `Users` (`username`,`password`) VALUES
+('alison','alison');
+
+
+INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
+('https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg','Derping',125,3.2,0,'jdlafjdfad','afdd',1);
+
+INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
+('https://media-cdn.tripadvisor.com/media/photo-s/07/a1/76/6a/culture-and-cocktails.jpg','Larping',200,4.6,0,'dfadfdaf','adfd',2);
+
+INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
+('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR8x_K4HtJY_cArGL5J9W8K_lp9wAkt0W1bk-8JZ_510IOjRdObdw','Durring',10,1.7,0,'durrrrrr','dfd',1);
+
+INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
+
+('https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg','Touring',500,4.1,0,'dfdaddaf','adadf',2);
+
+INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
+('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSlgLESw2gqJmCdxhrITEvF0fsOnx-4MURivJHgE7BizCcvpeBeZA','Herping',10000,5.0,0,'dfadsfdskjfjaddaf','adsfad',1);
+
+INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
+('https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg','Visiting',999,0.7,0,'fadfdasfadsf','fdsafd',2);
+
 -- INSERT INTO `Reviews` (`id`,`content`,`rating`,`title`,`id_Users`,`id_Tours`) VALUES
 -- ('','','','','','');
 -- INSERT INTO `travelers_tours` (`id`,`id_Users`,`id_Tours`) VALUES
