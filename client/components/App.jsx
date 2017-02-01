@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class App extends React.Component {
 
@@ -12,15 +13,20 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log(window.list);
-    this.setState({images: window.list});
+    axios.get('/')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
 
   render() {
     return (
         <div>
-        <h1 > Hello World</h1>
+        <a href="#/tours"><h1> Hello World</h1></a>
         </div>
     )
   }

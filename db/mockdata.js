@@ -1,4 +1,4 @@
-window.list = [
+var list = [
   {
     image:  'https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg',
     title: '',
@@ -69,3 +69,5 @@ window.list = [
 ];
 
 // var tourDetails = {}
+
+export default list;
