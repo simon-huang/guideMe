@@ -9,20 +9,37 @@ module.exports = {
         callback(err, results);
       });
     },
-    getOne: function(param, callback) {
-      var queryStr = 'SELECT * FROM TOURS WHERE id=' + param;
+    getOne: function(id, callback) {
+      var queryStr = 'SELECT * FROM TOURS WHERE id=' + id;
       db.query(queryStr, function(err, results) {
         callback(err, results);
       });
     },
     post: function(params, callback) {
       // create a tour for a userid for a given username
-      var queryStr = '';
-      db.query(queryStr, params, function(err, results) {
+
+      var queryStr = `INSERT INTO TOURS (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`)\
+                      VALUES `; // add each parameter value
+      db.query(queryStr, function(err, results) {
         callback(err, results);
       });
     }
   },
-  users: {},
+  users: {
+    get: function(username, callback) {
+      var queryStr = 'SELECT * FROM USERS WHERE username=' + username;
+      db.query(queryStr, function(err, result) {
+        callback(err, result);
+      });
+    }),
+    post: function(params, callback) {
+      var username = params.username;
+      var password = params.password;
+      var queryStr = `INSERT INTO USERS ('username', 'password') VALUES (${username}, ${password})`;
+      db.query(queryStr, function(err, result) {
+        callback(err, result);
+      });
+    })
+  },
   reviews: {}
 }

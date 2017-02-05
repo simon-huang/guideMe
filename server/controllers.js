@@ -11,13 +11,11 @@ module.exports = {
       });
     },
     getOne: function(req, res) {
-      var param = req.params.id;
-      models.tours.getOne(param, function(err, result) {
+      var TourId = req.params.id;
+      models.tours.getOne(TourId, function(err, result) {
         if (err) {
           console.error(err);
         }
-        console.log(param);
-        console.log(result);
         res.json(result);
       });
     },
@@ -26,11 +24,31 @@ module.exports = {
       models.tours.post(params, function(err, results) {
         if (err) {
           console.error(err);
+          res.sendStatus(501);
         }
         res.sendStatus(201);
       });
     }
   },
-  users: {},
+  users: {
+    get: function(req, res) {
+      var username = req.params.username;
+      models.users.get(username, function(err, result) {
+        if (err) {
+          console.error(err);
+        }
+        res.json(result);
+      });
+    },
+    post: function(req, res) {
+      var params = [req.params.username, req.params.password];
+      models.users.post(params, function(err, result) {
+        if (err) {
+          console.error(err)
+        }
+        res.sendStatus(201);
+      });
+    }
+  }
   reviews: {}
 }
