@@ -7,7 +7,7 @@ module.exports = {
         if (err) {
           console.error(err);
         }
-        res.json(results);
+        res.send(results);
       });
     },
     getOne: function(req, res) {

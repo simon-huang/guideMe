@@ -40,11 +40,11 @@ passport.deserializeUser(function(obj, cb) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', controller.tours.getAll);
-
-// app.get('/tours', function(req, res) {
-//   res.redirect('/');
+// app.get('/', function(req, res) {
+//   res.redirect('/login');
 // });
+
+app.get('/tours', controller.tours.getAll);
 
 // app.get('/tours/:id', controller.tours.getOne);
 
