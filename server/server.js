@@ -56,7 +56,7 @@ app.get('/tours', controller.tours.getAll);
 
 // app.get('/users/:id');
 
-// app.post('/tours/:id', controller.tours.post);
+app.post('/tours', controller.tours.post);
 
 
 app.listen(port, function() {

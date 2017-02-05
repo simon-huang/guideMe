@@ -20,8 +20,8 @@ module.exports = {
       });
     },
     post: function(req, res) {
-      var params = [req.body.name, req.body.text]; // each tour property
-      models.tours.post(params, function(err, results) {
+      models.tours.post(req.body, function(err, results) {
+        console.log('POST: ', req.body);
         if (err) {
           console.error(err);
           res.sendStatus(501);

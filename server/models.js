@@ -18,8 +18,9 @@ module.exports = {
     post: function(params, callback) {
       // create a tour for a userid for a given username
 
-      // var queryStr = `INSERT INTO TOURS (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`)\
-      //                 VALUES `; // add each parameter value
+      var queryStr = `INSERT INTO TOURS ('image','title','price','rating','numReviews','description','duration','id_Guide')\
+                      VALUES (${params.link}, ${params.title}, ${parseInt(params.price, 10).toFixed(2)}, 0, 0, ${params.description}, ${parseInt(params.duration, 10).toFixed(2)}, 1)`; // add each parameter value
+      console.log('Query: ', queryStr);
       db.query(queryStr, function(err, results) {
         callback(err, results);
       });
