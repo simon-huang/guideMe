@@ -4,20 +4,13 @@ var path = require('path');
 
 
 module.exports = {
-  context: __dirname,
-
   entry: {
-    javascript: './client/index.js',
-    html: './public/index.html'
+    javascript: './client/index.js'
   },
 
   output: {
-    filename: 'index.js',
-    path: __dirname + '/public/client'
-  },
-  
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    filename: 'bundle.js',
+    path: __dirname + '/public/'
   },
 
   module: {
@@ -25,11 +18,10 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ["babel-loader"]
-      },
-      {
-        test: /\.html$/,
-        loader: 'file?name=[name].[ext]',
+        loaders: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        }
       }
     ]
   }
