@@ -16,8 +16,8 @@ app.use(require('body-parser').json());
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 passport.use(new Strategy({
-  clientID: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
+  clientID: '1107265252735802',
+  clientSecret: '451873427e8f870ce894b23d9c179c92',
   callbackURL: 'http://localhost:1337/login/facebook/return'
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -42,25 +42,23 @@ app.use(passport.session());
 
 app.get('/', controller.tours.getAll);
 
-app.get('/tours', function(req, res) {
-  res.redirect('/');
-});
+// app.get('/tours', function(req, res) {
+//   res.redirect('/');
+// });
 
-app.get('/tours/:id', controller.tours.getOne);
+// app.get('/tours/:id', controller.tours.getOne);
 
-app.get('/login', );
+// app.get('/login', );
 
-app.get('/login/facebook');
+// app.get('/login/facebook');
 
-app.get('/login/facebook/return');
+// app.get('/login/facebook/return');
 
-app.get('/users/:id');
+// app.get('/users/:id');
 
-app.post('/tours/:id', controller.tours.post);
+// app.post('/tours/:id', controller.tours.post);
 
 
 app.listen(port, function() {
   console.log('Listening on port ' + port + '...');
 });
-
-console.log(proccess.env.CLIENT_SECRET);

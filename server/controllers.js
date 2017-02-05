@@ -49,6 +49,6 @@ module.exports = {
         res.sendStatus(201);
       });
     }
-  }
+  },
   reviews: {}
 }

@@ -18,8 +18,8 @@ module.exports = {
     post: function(params, callback) {
       // create a tour for a userid for a given username
 
-      var queryStr = `INSERT INTO TOURS (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`)\
-                      VALUES `; // add each parameter value
+      // var queryStr = `INSERT INTO TOURS (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`)\
+      //                 VALUES `; // add each parameter value
       db.query(queryStr, function(err, results) {
         callback(err, results);
       });
@@ -31,7 +31,7 @@ module.exports = {
       db.query(queryStr, function(err, result) {
         callback(err, result);
       });
-    }),
+    },
     post: function(params, callback) {
       var username = params.username;
       var password = params.password;
@@ -39,7 +39,7 @@ module.exports = {
       db.query(queryStr, function(err, result) {
         callback(err, result);
       });
-    })
+    }
   },
   reviews: {}
 }
