@@ -1,12 +1,13 @@
 import React from 'react'
+import axios from 'axios'
 
 export default class Create extends React.Component {
   constructor(props) {
     super(props);
     this.state = {title: '',
-                  link: '',
+                  image: '',
                   price: '',
-                  time: '',
+                  duration: '',
                   description: ''
                   };
 
@@ -23,14 +24,14 @@ export default class Create extends React.Component {
   }
 
   handleLinkChange(event) {
-    this.setState({link: event.target.value});
+    this.setState({image: event.target.value});
   }
 
   handlePriceChange(event) {
     this.setState({price: event.target.value});
   }
   handleTimeChange(event) {
-    this.setState({time: event.target.value});
+    this.setState({duration: event.target.value});
   }
   handleDescriptionChange(event) {
     this.setState({description: event.target.value});
@@ -38,6 +39,7 @@ export default class Create extends React.Component {
 
   handleSubmit(event) {
     console.log(this.state);
+    axios.post('/tours', this.state).then((response) => console.log(response));
     event.preventDefault();
   }
 
@@ -62,7 +64,7 @@ export default class Create extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Photo Link:</label>
           <div className="col-sm-8">
-            <input type="text" name="link" className="form-control" value={this.state.link} onChange={this.handleLinkChange} />
+            <input type="text" name="link" className="form-control" value={this.state.image} onChange={this.handleLinkChange} />
           </div>
         </div>        
         <div className="form-group">
@@ -74,7 +76,7 @@ export default class Create extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Time:</label>
           <div className="col-sm-8">
-            <input type="text" name="time" className="form-control" value={this.state.time} onChange={this.handleTimeChange} />
+            <input type="text" name="time" className="form-control" value={this.state.duration} onChange={this.handleTimeChange} />
           </div>
         </div>  
         <div className="form-group">
