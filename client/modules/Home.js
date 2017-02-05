@@ -1,5 +1,57 @@
 import React from 'react'
 import ListElement from './ListElement'
+import axios from 'axios';
+
+
+
+export default class Home extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      tours: []
+    };
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+    // axios.get('/tours').then(function(response) {
+    //   console.log(response.data);
+    // });
+    axios.get('/tours').then((response) => { this.setState({tours: response.data})});
+  }
+
+
+  render() {
+    return (
+      <div>
+        <div className="jumbotron">
+          <div className="container jumboText">
+            <h1 >Experience worth spreading</h1>
+            <p >If you want special experience in San Francisco, find a local here!</p>
+          </div>
+        </div>
+        <div className="space">
+        </div>
+        <div className="row">
+          { this.state.tours.map((listElement)=>
+            <ListElement listElement={listElement} key={listElement.id}/> 
+          )}
+        </div>
+      </div>
+    )
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 window.list = [
   {
@@ -69,27 +121,3 @@ window.list = [
     description: `We'll meet at my business, where I’ll hook you up with the bike you’ll use for the duration of our time together. I’ll introduce you to my colleagues, show you around and talk about why our business is special. From there we'll cross the elegant Vedado neighborhood to find my favorite coffee shop, Mamainés. I’ll leave you with some tips on places to ride before we reunite again. In order to get to Café Mamainé I will take you through my favorite neighborhood, El Vedado, a place that mixes history, elegance, and the vibrant energy of the "new Cuba."`
   } 
 ];
-
-
-
-export default React.createClass({
-  render() {
-    return (
-      <div>
-        <div className="jumbotron">
-          <div className="container jumboText">
-            <h1 >Experience worth spreading</h1>
-            <p >If you want special experience in San Francisco, find a local here!</p>
-          </div>
-        </div>
-        <div className="space">
-        </div>
-        <div className="row">
-          { window.list.map((listElement)=>
-            <ListElement listElement={listElement} key={listElement.id}/> 
-          )}
-        </div>
-      </div>
-    )
-  }
-})

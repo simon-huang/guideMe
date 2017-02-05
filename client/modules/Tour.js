@@ -1,12 +1,30 @@
 import React from 'react'
+import axios from 'axios';
 
 export default class Tour extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      tours: []
+    };
   }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+    // axios.get('/tours').then(function(response) {
+    //   console.log(response.data);
+    // });
+    axios.get('/tours').then((response) => { this.setState({tours: response.data})});
+  }
+
   render() {
+    if (this.state.tours.length === 0) {
+      return (
+        <div></div>
+      );
+    }
     const id = this.props.params.TourID;
-    const thisTour = window.list.filter(function(tour) {
+    const thisTour = this.state.tours.filter(function(tour) {
       return tour.id == id;
     })[0];
     const divStyle = {
