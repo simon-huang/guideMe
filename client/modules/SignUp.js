@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import NavLink from './NavLink'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 export default class SignUp extends React.Component {
   constructor(props) {
@@ -27,8 +27,7 @@ export default class SignUp extends React.Component {
   handleSubmit(event) {
     console.log('handleSubmit');
     axios.post('/signup', this.state).then((response) => {
-      if (response.status === 200) {
-        this.setState({user: response.data[0]});
+      if (response.status === 201) {
         browserHistory.push('/users/' + this.state.username);
       }
     });
