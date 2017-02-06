@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import NavLink from './NavLink'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 
 export default class LogIn extends React.Component {
@@ -9,6 +10,7 @@ export default class LogIn extends React.Component {
     this.state = {
       username: '',
       password: '',
+      user: {}
     };
 
     this.handleUsername = this.handleUsername.bind(this);
@@ -28,15 +30,18 @@ export default class LogIn extends React.Component {
     console.log(this.state);
     //login form is a post request on the client side
     axios.post('/login', this.state).then((response) => {
-          this.setState({userID: response.data[0].id});
-          });
+        if (response.status === 200) {
+          this.setState({user: response.data[0]});
+          browserHistory.push('/users/' + this.state.user.username);
+        }
+      });
 
     event.preventDefault();
   }
 
   render() {
 
-    const href = "/Users/" + this.state.username;
+    const href = "/users/" + this.state.username;
 
     return (
       <form onSubmit={this.handleSubmit} className="form-horizontal">
@@ -61,7 +66,7 @@ export default class LogIn extends React.Component {
         </div>
         <div className="form-group">
           <div className="col-sm-offset-2 col-sm-10">
-          <NavLink to={href}> <input type="submit" value="Submit" className="btn btn-default"/> </NavLink>
+          <input type="submit" value="Submit" className="btn btn-default"/> 
           </div>
         </div>                  
       </form>

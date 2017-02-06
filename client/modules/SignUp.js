@@ -7,7 +7,8 @@ export default class SignUp extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: '' 
+      password: '' ,
+      user: {}
     };
 
     this.handleUsername = this.handleUsername.bind(this);
@@ -24,16 +25,19 @@ export default class SignUp extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
-    axios.post('/signup', this.state).then((response) => console.log(response));
-
+    axios.post('/signup', this.state).then((response) => {
+      if (response.status === 200) {
+        this.setState({user: response.data[0]});
+        browserHistory.push('/users/' + this.state.user.username);
+      }
+    });
     event.preventDefault();
   }
 
   render() {
 
     const href = "/Users/" + this.state.username;
-    
+
     return (
       <form onSubmit={this.handleSubmit} className="form-horizontal">
         <div className="space"></div>

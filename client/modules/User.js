@@ -38,8 +38,9 @@ export default class User extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props.params.username);
     axios.get('/users/' + this.props.params.username ).then((response) => {
-      console.log('get user by name?', response);
+      this.setState({user: response.data[0]});
     });
   }
 

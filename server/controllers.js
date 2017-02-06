@@ -33,10 +33,19 @@ module.exports = {
     }
   },
   users: {
-    get: function(req, res) {
+    getUserForPage: function(req, res) {
       console.log('inside users/get', req.params.username);
+      var username = req.params.username;
+      models.users.get(username, function(err, result) {
+        if (err) {
+          console.error(err);
+        }
+      res.json(result);
+      });
+    },
+    getUserForLogin: function(req, res) {
+      console.log('inside users/get', req.body.username);
       var username = req.body.username;
-      console.log(req.body);
       models.users.get(username, function(err, result) {
         if (err) {
           console.error(err);
@@ -45,7 +54,7 @@ module.exports = {
       });
     },
     post: function(req, res) {
-      var params = [req.params.username, req.params.password];
+      var params = [req.body.username, req.body.password];
       console.log('inside post, body:', req.body);
       models.users.post(params, function(err, result) {
         if (err) {

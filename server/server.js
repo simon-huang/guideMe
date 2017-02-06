@@ -48,9 +48,9 @@ app.get('/tours', controller.tours.getAll);
 
 app.get('/tours/:id', controller.tours.getOne);
 
-app.post('/login', controller.users.get);
+app.post('/login', controller.users.getUserForLogin);
 
-app.get('/users/:username', controller.users.get);
+app.get('/users/:username', controller.users.getUserForPage);
 // app.post('/login', controller.users.get);
 
 // app.get('/login/facebook');
