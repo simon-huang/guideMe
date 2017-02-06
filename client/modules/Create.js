@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 export default class Create extends React.Component {
   constructor(props) {
@@ -39,16 +40,12 @@ export default class Create extends React.Component {
 
   handleSubmit(event) {
     console.log(this.state);
-<<<<<<< HEAD
-    axios.post('/tours', this.state).then((response) => console.log(response));
-=======
     axios.post('/tours', this.state).then((response) => {
       if (response.status === 201) {
           this.setState({user: response.data[0]});
-          browserHistory.push('/allTours');
+          browserHistory.push('/AllLists');
       }
     });
->>>>>>> 6379f60eecda4b9e8fe858f0f8daa41985752222
     event.preventDefault();
   }
 

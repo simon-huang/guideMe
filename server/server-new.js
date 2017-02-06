@@ -28,6 +28,12 @@ var checkUser = function(req, res, next) {
   }
 };
 
+var logOut = function(req, res) {
+    req.session.destroy(function() {
+    res.send();
+  });
+};
+
 app.get('/tours', controller.tours.getAll);
 
 app.get('/tours/:id', controller.tours.getOne);
@@ -39,9 +45,9 @@ app.get('/users/:username', controller.users.getUserForPage);
 app.post('/tours', checkUser, controller.tours.post);
 
 
-app.get('/logout', );
+app.get('/logout', logOut);
 
-app.post('/signup', );
+app.post('/signup', controller.users.post);
 
 
 

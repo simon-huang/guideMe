@@ -32,7 +32,7 @@ export default class LogIn extends React.Component {
     axios.post('/login', this.state).then((response) => {
         if (response.status === 200) {
           this.setState({user: response.data[0]});
-          browserHistory.push('/users/' + this.state.user.username);
+          browserHistory.push('/users/' + this.state.username);
         }
       });
 

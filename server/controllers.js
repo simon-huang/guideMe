@@ -44,20 +44,24 @@ module.exports = {
     },
     getUserForLogin: function(req, res) {
       console.log('inside users/get', req.body.username);
-      var username = req.body.username;
-      models.users.get(username, function(err, result) {
+      models.users.get(req.body, function(err, result) {
         if (err) {
           console.error(err);
         }
-      res.json(result);
+        if (result === '404') {
+          res.sendStatus(404);
+        } else {
+          res.send(result);
+        }
       });
     },
     post: function(req, res) {
-      var params = [req.body.username, req.body.password];
-      console.log('inside post, body:', req.body);
+      var params = req.body;
+      console.log('inside post, body:', params);
       models.users.post(params, function(err, result) {
         if (err) {
           console.error(err)
+          res.sendStatus(501);
         }
         res.sendStatus(201);
       });

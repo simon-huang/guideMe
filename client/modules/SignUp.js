@@ -25,10 +25,11 @@ export default class SignUp extends React.Component {
   }
 
   handleSubmit(event) {
+    console.log('handleSubmit');
     axios.post('/signup', this.state).then((response) => {
       if (response.status === 200) {
         this.setState({user: response.data[0]});
-        browserHistory.push('/users/' + this.state.user.username);
+        browserHistory.push('/users/' + this.state.username);
       }
     });
     event.preventDefault();
@@ -61,7 +62,7 @@ export default class SignUp extends React.Component {
         </div>
         <div className="form-group">
           <div className="col-sm-offset-2 col-sm-10">
-        <NavLink to={href}><input type="submit" value="Submit" className="btn btn-default"/></NavLink>
+            <input type="submit" value="Submit" className="btn btn-default"/>
           </div>
         </div>                  
       </form>

@@ -1,5 +1,5 @@
 var db = require('../db');
-var bcrypt = require('bcryptjs');
+var bcrypt = require('bcrypt');
 
 module.exports = {
   tours: {
@@ -25,21 +25,37 @@ module.exports = {
     }
   },
   users: {
-    get: function(username, callback) {
-      console.log('inside models/users/get', username);
-      var queryStr = 'SELECT * FROM USERS WHERE username="' + username +'"';
-      db.query(queryStr, function(err, result) {
-        callback(err, result);
+    get: function(params, callback) {
+      console.log('inside models/users/get', params);
+      var username = params.username;
+      var password = params.password;
+
+      var queryStr = 'SELECT password FROM USERS WHERE username="' + username +'"';
+      db.query(queryStr, function(err, hash) {
+        console.log('inside query', hash);
+        if (err) {
+          console.error(err);
+        } else if (hash.length === 0) {
+          callback(err, '404');
+        } else {
+          bcrypt.compare(password, hash, function(err, match) {
+            console.log('inside brcrypt', match);
+            callback(err, match);
+          });
+        }
       });
     },
     post: function(params, callback) {
       var username = params.username;
       var password = params.password;
-
+      console.log('models/post', password);
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(password, salt, function(err, hash) {
-          var queryStr = `INSERT INTO USERS ('username', 'password') VALUES (${username}, ${hash})`;
-          db.query(queryStr, function(err, result) {
+          console.log('hash', hash);
+          var queryStr = 'INSERT INTO users SET ?';
+          console.log('qs', queryStr);
+          db.query(queryStr, {username: username, password: hash}, function(err, result) {
+            console.log('models/post/query', hash, result);
             callback(err, result);
           });
         });
@@ -48,8 +64,6 @@ module.exports = {
     check: function(params, callback) {
       var username = params.username;
       var password = params.password;
-
-      get(username)
 
     }
   },
