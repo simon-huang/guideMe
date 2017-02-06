@@ -12,7 +12,6 @@ module.exports = {
     },
     getOne: function(req, res) {
       var TourId = req.params.id;
-      console.log('inside get ONe');
       models.tours.getOne(TourId, function(err, result) {
         if (err) {
           console.error(err);
@@ -22,7 +21,6 @@ module.exports = {
     },
     post: function(req, res) {
       models.tours.post(req.body, function(err, results) {
-        console.log('POST: ', req.body);
         if (err) {
           console.error(err);
           res.sendStatus(501);
@@ -33,9 +31,9 @@ module.exports = {
   },
   users: {
     getUserForPage: function(req, res) {
-      console.log('inside users/get', req.params.username);
+      // return user object to load their personal dashboard page, with data added to database such as tours they've taken, booked, etc;
       var username = req.params.username;
-      models.users.get(username, function(err, result) {
+      models.users.get(req.params.username, function(err, result) {
         if (err) {
           console.error(err);
         }
@@ -43,27 +41,31 @@ module.exports = {
       });
     },
     getUserForLogin: function(req, res) {
-      console.log('inside users/get', req.body.username);
-      models.users.get(req.body, function(err, result) {
+      models.users.check(req.body, function(err, result) {
         if (err) {
           console.error(err);
         }
         if (result === '404') {
           res.sendStatus(404);
         } else {
-          res.send(result);
+          req.session.regenerate(function() {
+            req.session.user = req.body.username;
+            res.send(result);
+          });
         }
       });
     },
     post: function(req, res) {
-      var params = req.body;
-      console.log('inside post, body:', params);
-      models.users.post(params, function(err, result) {
+      models.users.post(req.body, function(err, result) {
         if (err) {
           console.error(err)
           res.sendStatus(501);
+        } else {
+          req.session.regenerate(function() {
+            req.session.user = req.body.username;
+            res.sendStatus(201);
+          });
         }
-        res.sendStatus(201);
       });
     }
   },
