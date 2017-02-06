@@ -29,7 +29,8 @@ var checkUser = function(req, res, next) {
 };
 
 var logOut = function(req, res) {
-    req.session.destroy(function() {
+  console.log('inside logOut');
+  req.session.destroy(function() {
     res.send();
   });
 };
