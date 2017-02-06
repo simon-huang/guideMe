@@ -1,4 +1,5 @@
 var db = require('../db');
+var bcrypt = require('bcryptjs');
 
 module.exports = {
   tours: {
@@ -33,10 +34,22 @@ module.exports = {
     post: function(params, callback) {
       var username = params.username;
       var password = params.password;
-      var queryStr = `INSERT INTO USERS ('username', 'password') VALUES (${username}, ${password})`;
-      db.query(queryStr, function(err, result) {
-        callback(err, result);
+
+      bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(password, salt, function(err, hash) {
+          var queryStr = `INSERT INTO USERS ('username', 'password') VALUES (${username}, ${hash})`;
+          db.query(queryStr, function(err, result) {
+            callback(err, result);
+          });
+        });
       });
+    },
+    check: function(params, callback) {
+      var username = params.username;
+      var password = params.password;
+
+      get(username)
+
     }
   },
   reviews: {}

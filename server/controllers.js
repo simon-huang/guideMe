@@ -32,8 +32,7 @@ module.exports = {
   },
   users: {
     get: function(req, res) {
-      var username = req.params.username;
-      models.users.get(username, function(err, result) {
+      models.users.get(req.body.username, function(err, result) {
         if (err) {
           console.error(err);
         }
@@ -41,8 +40,14 @@ module.exports = {
       });
     },
     post: function(req, res) {
-      var params = [req.params.username, req.params.password];
-      models.users.post(params, function(err, result) {
+      models.users.get(req.body.username, function(err, user) {
+        if (err) {
+          console.error(err);
+        }
+        if (user.username ===)
+      }
+
+      models.users.post(req.body, function(err, result) {
         if (err) {
           console.error(err)
         }
