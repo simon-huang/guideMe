@@ -23,7 +23,7 @@ export default class ListElement extends React.Component {
           <div className="bottomRow text-center">
             <div className="priceAndTitle">
               <span className="price">
-                {this.props.listElement.price}
+                ${this.props.listElement.price}
               </span>
               <span className="title">
                 {this.props.listElement.title}

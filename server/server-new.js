@@ -32,12 +32,12 @@ app.get('/tours', controller.tours.getAll);
 
 app.get('/tours/:id', controller.tours.getOne);
 
+app.post('/login', controller.users.getUserForLogin);
+
+app.get('/users/:username', controller.users.getUserForPage);
+
 app.post('/tours', checkUser, controller.tours.post);
 
-
-app.get('/users/:id', checkUser, controller.users.get);
-
-app.post('/login', );
 
 app.get('/logout', );
 
@@ -48,8 +48,6 @@ app.post('/signup', );
 app.listen(port);
 
 console.log('Listening on port ' + port + '...');
-
-// post /signup req.body.username, password
 
 
 

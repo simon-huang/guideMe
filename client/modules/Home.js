@@ -1,6 +1,6 @@
 import React from 'react'
 import ListElement from './ListElement'
-import axios from 'axios';
+import axios from 'axios'
 
 
 
@@ -12,12 +12,9 @@ export default class Home extends React.Component{
     };
   }
 
+  //get all tours and set first six as homepage's tours
   componentDidMount() {
-    console.log('componentDidMount');
-    // axios.get('/tours').then(function(response) {
-    //   console.log(response.data);
-    // });
-    axios.get('/tours').then((response) => { this.setState({tours: response.data})});
+    axios.get('/tours').then((response) => { this.setState({tours: response.data.slice(0, 6)})});
   }
 
 

@@ -40,15 +40,18 @@ passport.deserializeUser(function(obj, cb) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get('/', function(req, res) {
-//   res.redirect('/login');
+// app.get('/*', function(req, res) {
+//   res.send();
 // });
 
 app.get('/tours', controller.tours.getAll);
 
-// app.get('/tours/:id', controller.tours.getOne);
+app.get('/tours/:id', controller.tours.getOne);
 
-// app.get('/login', );
+app.post('/login', controller.users.getUserForLogin);
+
+app.get('/users/:username', controller.users.getUserForPage);
+// app.post('/login', controller.users.get);
 
 // app.get('/login/facebook');
 
@@ -57,6 +60,10 @@ app.get('/tours', controller.tours.getAll);
 // app.get('/users/:id');
 
 app.post('/tours', controller.tours.post);
+
+app.post('/tours', controller.tours.post);
+
+app.post('/signup', controller.users.post);
 
 
 app.listen(port, function() {

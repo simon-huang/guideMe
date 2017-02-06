@@ -26,7 +26,8 @@ module.exports = {
   },
   users: {
     get: function(username, callback) {
-      var queryStr = 'SELECT * FROM USERS WHERE username=' + username;
+      console.log('inside models/users/get', username);
+      var queryStr = 'SELECT * FROM USERS WHERE username="' + username +'"';
       db.query(queryStr, function(err, result) {
         callback(err, result);
       });
