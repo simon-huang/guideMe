@@ -1,41 +1,38 @@
 import React from 'react'
-import axios from 'axios';
+import axios from 'axios'
+import NavLink from './NavLink'
 
 export default class Tour extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tours: []
+      singleTour: {}
     };
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
-    // axios.get('/tours').then(function(response) {
-    //   console.log(response.data);
-    // });
-    axios.get('/tours').then((response) => { this.setState({tours: response.data})});
+    axios.get('/tours/' + this.props.params.TourID).then((response) => {
+      this.setState({singleTour: response.data[0]});
+    });
   }
 
   render() {
-    if (this.state.tours.length === 0) {
+    if (this.state.singleTour == {}) {
       return (
         <div></div>
       );
     }
     const id = this.props.params.TourID;
-    const thisTour = this.state.tours.filter(function(tour) {
-      return tour.id == id;
-    })[0];
+    const thisTour = this.state.singleTour;
     const divStyle = {
-    backgroundImage: 'url(' + thisTour.image + ')'
+      backgroundImage: 'url(' + thisTour.image + ')'
     }
     return (
       <div className="container text-center ">
         <div className="space">
         </div> 
         <h1 className="text-center">
-        {thisTour.title}
+          {thisTour.title}
         </h1>
         <div className="space">
         </div> 
@@ -47,7 +44,7 @@ export default class Tour extends React.Component {
         <h3>Price:{thisTour.price}</h3>
         <h3>Time:{thisTour.time}</h3>
         <p>{thisTour.description}</p>
-        <button type="button" className="btn btn-primary btn-lg btn-block">Book this experience</button>
+        <NavLink to="/Login"><button type="button" className="btn btn-primary btn-lg btn-block">Book this experience</button></NavLink>
       </div>
     );
   }

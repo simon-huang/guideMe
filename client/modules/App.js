@@ -17,8 +17,3 @@ export default React.createClass({
     )
   }
 })
-
-
-
-//className="navbar-right"
-          //<li className="navb"><NavLink to="/about">About</NavLink></li>

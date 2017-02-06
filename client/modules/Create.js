@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 export default class Create extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ export default class Create extends React.Component {
 
   handleSubmit(event) {
     console.log(this.state);
+    axios.post('/tours', this.state).then((response) => console.log(response));
     event.preventDefault();
   }
 

@@ -12,6 +12,7 @@ module.exports = {
     },
     getOne: function(req, res) {
       var TourId = req.params.id;
+      console.log('inside get ONe');
       models.tours.getOne(TourId, function(err, result) {
         if (err) {
           console.error(err);
@@ -21,6 +22,7 @@ module.exports = {
     },
     post: function(req, res) {
       var params = [req.body.name, req.body.text]; // each tour property
+      console.log(req.body);
       models.tours.post(params, function(err, results) {
         if (err) {
           console.error(err);
@@ -32,16 +34,19 @@ module.exports = {
   },
   users: {
     get: function(req, res) {
-      var username = req.params.username;
+      console.log('inside users/get', req.params.username);
+      var username = req.body.username;
+      console.log(req.body);
       models.users.get(username, function(err, result) {
         if (err) {
           console.error(err);
         }
-        res.json(result);
+      res.json(result);
       });
     },
     post: function(req, res) {
       var params = [req.params.username, req.params.password];
+      console.log('inside post, body:', req.body);
       models.users.post(params, function(err, result) {
         if (err) {
           console.error(err)
