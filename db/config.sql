@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS `Users`;
     
 CREATE TABLE `Users` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(25) UNIQUE DEFAULT NULL,
+  `username` VARCHAR(25) NULL DEFAULT NULL,
   `password` VARCHAR(150) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
@@ -35,8 +35,8 @@ DROP TABLE IF EXISTS `Tours`;
 CREATE TABLE `Tours` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `image` VARCHAR(200) NULL DEFAULT NULL,
-  `title` VARCHAR(30) NULL DEFAULT NULL,
-  `price` VARCHAR(10) NULL DEFAULT NULL,
+  `title` VARCHAR(100) NULL DEFAULT NULL,
+  `price` VARCHAR(100) NULL DEFAULT NULL,
   `rating` FLOAT NULL DEFAULT 0,
   `numReviews` INTEGER NULL DEFAULT 0,
   `description` MEDIUMTEXT NULL DEFAULT NULL,
@@ -98,34 +98,70 @@ ALTER TABLE `travelers_tours` ADD FOREIGN KEY (id_Tours) REFERENCES `Tours` (`id
 -- ---
 -- Test Data
 -- ---
+INSERT INTO `Users` (`username`,`password`) VALUES
+('mark','$2a$10$bWZKl.MMpxTyBnNW2c8mbuU4eVhJojv3OfGfX4yFeCTDF8QwTDw0u');
 
 INSERT INTO `Users` (`username`,`password`) VALUES
-('mark','mark');
+('alison','$2a$10$bWZKl.MMpxTyBnNW2c8mbuU4eVhJojv3OfGfX4yFeCTDF8QwTDw0u');
 
-INSERT INTO `Users` (`username`,`password`) VALUES
-('alison','alison');
 
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
-('https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg','Derping',125,3.2,0,'jdlafjdfad','afdd',1);
+('https://s-media-cache-ak0.pinimg.com/originals/58/3a/dd/583add86c194fa2de17ce38b88644435.jpg',
+'Find a perfect girl with me in club',
+500,
+4.9,
+120,
+"Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
+'2 Days',
+2);
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
-('https://media-cdn.tripadvisor.com/media/photo-s/07/a1/76/6a/culture-and-cocktails.jpg','Larping',200,4.6,0,'dfadfdaf','adfd',2);
+('http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/istock_000001168352_small.jpg',
+'Jump in to Golden Gate Bridge',
+500,
+4.9,
+120,
+"Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
+'2 Days',
+2);
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
-('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR8x_K4HtJY_cArGL5J9W8K_lp9wAkt0W1bk-8JZ_510IOjRdObdw','Durring',10,1.7,0,'durrrrrr','dfd',1);
+('https://waterworldswim.com/wp-content/uploads/2014/08/maggietidmore11.jpg',
+'Swimming under the Golden Gate Bridge',
+500,
+4.9,
+120,
+"Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
+'2 Days',
+2);
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
-
-('https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg','Touring',500,4.1,0,'dfdaddaf','adadf',2);
+('https://media-cdn.tripadvisor.com/media/photo-s/07/a1/76/6a/culture-and-cocktails.jpg',
+'Visit really secret place',
+500,
+4.9,
+120,
+"Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
+'2 Days',
+2);
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
-('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSlgLESw2gqJmCdxhrITEvF0fsOnx-4MURivJHgE7BizCcvpeBeZA','Herping',10000,5.0,0,'dfadsfdskjfjaddaf','adsfad',1);
+('http://hotinjuba.com/wp-content/uploads/2016/09/woman-smoking-weed.jpg',
+'Smoke weed with me',
+500,
+4.9,
+120,
+"Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
+'2 Days',
+2);
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`id_Guide`) VALUES
-('https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg','Visiting',999,0.7,0,'fadfdasfadsf','fdsafd',2);
-
--- INSERT INTO `Reviews` (`id`,`content`,`rating`,`title`,`id_Users`,`id_Tours`) VALUES
--- ('','','','','','');
--- INSERT INTO `travelers_tours` (`id`,`id_Users`,`id_Tours`) VALUES
--- ('','','');
+('https://a0.muscache.com/im/pictures/89957997-2e3f-40cb-8f0b-dcbd5626bd9c.jpg?aki_policy=large',
+'Maverick Biker',
+500,
+4.9,
+120,
+"Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
+'2 Days',
+2);

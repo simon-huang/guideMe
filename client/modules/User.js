@@ -6,10 +6,7 @@ export default class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        username: 'alison',
-        password: 'alison'
-      },
+      //mock data: real tours will be generated using the current user's id
       tours: [
           {
             image:  'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR8x_K4HtJY_cArGL5J9W8K_lp9wAkt0W1bk-8JZ_510IOjRdObdw',
@@ -40,6 +37,7 @@ export default class User extends React.Component {
   componentDidMount() {
     console.log(this.props.params.username);
     axios.get('/users/' + this.props.params.username ).then((response) => {
+      console.log(response);
       this.setState({user: response.data[0]});
     });
   }
@@ -50,11 +48,7 @@ export default class User extends React.Component {
         <div></div>
       );
     }
-    // const id = this.props.params.TourID;
-    // const thisTour = this.state.singleTour;
-    // const divStyle = {
-    //   backgroundImage: 'url(' + thisTour.image + ')'
-    // }
+
     return (
 
       <div className="container text-center ">
