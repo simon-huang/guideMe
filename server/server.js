@@ -3,7 +3,7 @@ var partials = require('express-partials');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-
+var path = require('path');
 var controller = require('./controllers');
 
 var app = express();
@@ -36,25 +36,22 @@ var logOut = function(req, res) {
 };
 
 app.get('/tours', controller.tours.getAll);
-
 app.get('/tours/:id', controller.tours.getOne);
-
-app.post('/login', controller.users.getUserForLogin);
-
-app.get('/users/:username', controller.users.getUserForPage);
-
 app.post('/tours', checkUser, controller.tours.post);
 
-
+app.get('/users/:username', controller.users.getUserForPage);
 app.get('/logout', logOut);
-
+app.post('/login', controller.users.getUserForLogin);
 app.post('/signup', controller.users.post);
 
+app.use('*', (req, res, next) => {
+  res.render(path.resolve(__dirname, '../client/index.js'));
+});
 
+app.listen(port, () => {
+  console.log('Listening on port ' + port + '...');
+});
 
-app.listen(port);
-
-console.log('Listening on port ' + port + '...');
 
 
 
