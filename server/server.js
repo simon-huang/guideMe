@@ -45,7 +45,7 @@ app.post('/login', controller.users.getUserForLogin);
 app.post('/signup', controller.users.post);
 
 app.use('*', (req, res, next) => {
-  res.render(path.resolve(__dirname, '../client/index.js'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.listen(port, () => {
