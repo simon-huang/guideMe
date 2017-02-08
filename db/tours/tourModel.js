@@ -1,5 +1,6 @@
 var Sequelize = require('sequelize');
 var db = require('../index.js');
+var User = require('../users/userModel.js');
 
 var Tour = db.define('tour', {
 	image: {
@@ -11,7 +12,7 @@ var Tour = db.define('tour', {
 		unique: true
 	},
 	price: {
-		type: Sequelize.INTEGER
+		type: Sequelize.STRING
 	},
 	rating: {
 		type: Sequelize.FLOAT
