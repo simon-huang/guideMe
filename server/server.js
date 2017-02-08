@@ -1,59 +1,13 @@
-var express = require('express');
-var partials = require('express-partials');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var path = require('path');
-var controller = require('./controllers');
+import express from 'express';
+import middleware from './config/middleware';
+import routes from './config/routes';
 
 var app = express();
 var port = process.env.port || 1337;
 
-app.use(partials());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/../public'));
-app.use(cookieParser('allyourcookiesarebelongtous'));
-app.use(session({
-  secret: 'havefunwithlegacy!',
-  resave: false,
-  saveUninitialized: true
-}));
-
-var checkUser = function(req, res, next) {
-  if (!req.session) {
-    res.send('Not logged in');
-  } else {
-    next();
-  }
-};
-
-var logOut = function(req, res) {
-  console.log('inside logOut');
-  req.session.destroy(function() {
-    res.send();
-  });
-};
-
-app.get('/tours', controller.tours.getAll);
-app.get('/tours/:id', controller.tours.getOne);
-app.post('/tours', checkUser, controller.tours.post);
-
-app.get('/users/:username', controller.users.getUserForPage);
-app.get('/logout', logOut);
-app.post('/login', controller.users.getUserForLogin);
-app.post('/signup', controller.users.post);
-
-app.use('*', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+middleware(app, express);
+routes(app, express);
 
 app.listen(port, () => {
   console.log('Listening on port ' + port + '...');
 });
-
-
-
-
-
-
