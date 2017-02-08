@@ -9,6 +9,9 @@ var User = db.define('user', {
 	},
 	password: {
 		type: Sequelize.STRING
+	},
+	isGuide: {
+		type: Sequelize.BOOLEAN
 	}
 });
 
