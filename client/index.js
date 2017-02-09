@@ -16,7 +16,7 @@ import Create from './modules/Create'
 import Logout from './modules/Logout'
 
 var Root = props => (
-  <Provider store={store} >
+  <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
