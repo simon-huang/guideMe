@@ -39,14 +39,12 @@ export default class Create extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
+    event.preventDefault();
     axios.post('/tours', this.state).then((response) => {
       if (response.status === 201) {
-          this.setState({user: response.data[0]});
           browserHistory.push('/AllLists');
       }
     });
-    event.preventDefault();
   }
 
   render() {
