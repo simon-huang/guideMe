@@ -23,16 +23,10 @@ export default class AllLists extends React.Component{
         <div className="space">
         </div>
         <div className="row">
-<<<<<<< 5500eb958d29c9fcb1e458c030649bcd4f7984c7
-          { this.state.tours.map((listElement)=>
-            <ListElement listElement={listElement} key={listElement.id}/> 
-          )}
-=======
           { this.props.tours.tours ? this.props.tours.tours.map( listElement =>
             <ListElement listElement={listElement} 
               key={listElement.id}/> 
           ) : <h1>LOADING</h1>}
->>>>>>> Start redux refactor
         </div>
       </div>
     )
