@@ -1,40 +1,29 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import ListElement from './ListElement'
-import axios from 'axios'
+import store from '../store' 
+import { setTourListWithData } from '../actions/tourActions'
 
-export default class AllLists extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      tours: []
-    };
-  }
-
+class AllLists extends React.Component{
   componentDidMount() {
-    axios.get('/tours').then((response) => { this.setState({tours: response.data})});
+    store.dispatch(setTourListWithData());
   }
 
   render() {
     return (
       <div>
-
-            <h1 >Browse All Tours</h1>
-
+        <h1>Browse All Tours</h1>
         <div className="space">
         </div>
         <div className="row">
-<<<<<<< 5500eb958d29c9fcb1e458c030649bcd4f7984c7
-          { this.state.tours.map((listElement)=>
-            <ListElement listElement={listElement} key={listElement.id}/> 
-          )}
-=======
           { this.props.tours.tours ? this.props.tours.tours.map( listElement =>
             <ListElement listElement={listElement} 
               key={listElement.id}/> 
           ) : <h1>LOADING</h1>}
->>>>>>> Start redux refactor
         </div>
       </div>
     )
   }
 }
+
+export default connect(({ tours })  => { return { tours }; })(AllLists);
