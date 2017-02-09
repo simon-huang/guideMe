@@ -13,4 +13,14 @@ function setTourListWithData() {
   )
 }
 
-export { setTourList, setTourListWithData };
+function setTourItem(item, value) {
+  var toReturn = {
+    type: 'SET_TOUR_' + item.toUpperCase();
+  };
+
+  toReturn[item.toLowerCase()] = value;
+
+  return toReturn;
+}
+
+export { setTourList, setTourListWithData, setTourItem };

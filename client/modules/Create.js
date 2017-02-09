@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import store from '../store'
 
 export default class Create extends React.Component {
   constructor(props) {
