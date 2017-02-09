@@ -14,41 +14,41 @@ export function createTourReducer(state = {}, action) {
   switch(action.type) {
     case "SET_TOUR_TITLE":
       return {
-        ..state,
+        ...state,
         inCreation: {
-          ..inCreation,
+          ...inCreation,
           title: action.title
         }
       };
-    case: "SET_TOUR_IMAGE":
+    case "SET_TOUR_IMAGE":
       return {
-        ..state,
+        ...state,
         inCreation: {
-          ..inCreation,
+          ...inCreation,
           image: action.image
         }
       };
-    case: "SET_TOUR_PRICE":
+    case "SET_TOUR_PRICE":
       return {
-        ..state,
+        ...state,
         inCreation: {
-          ..inCreation,
+          ...inCreation,
           price: action.price
         }
       };
-    case: "SET_TOUR_DURATION":
+    case "SET_TOUR_DURATION":
       return {
-        ..state,
+        ...state,
         inCreation: {
-          ..inCreation,
+          ...inCreation,
           duration: action.duration
         }
       };
-    case: "SET_TOUR_DESCRIPTION":
+    case "SET_TOUR_DESCRIPTION":
       return {
-        ..state,
+        ...state,
         inCreation: {
-          ..inCreation,
+          ...inCreation,
           description: action.description
         }
       };

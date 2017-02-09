@@ -15,7 +15,7 @@ function setTourListWithData() {
 
 function setTourItem(item, value) {
   var toReturn = {
-    type: 'SET_TOUR_' + item.toUpperCase();
+    type: 'SET_TOUR_' + item.toUpperCase()
   };
 
   toReturn[item.toLowerCase()] = value;
