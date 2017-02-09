@@ -1,13 +1,16 @@
 var Sequelize = require('sequelize');
 var db = require('../index.js');
 var User = require('../users/userModel.js');
+var TimeTable = require('../timetable/timetableModel.js');
+var Review = require('../reviews/reviewModel.js');
+var Traveler_Tour = require('../travelers_tours/traveler_tourModel.js');
 
 var Tour = db.define('tour', {
-	image: {
+	title: {
 		type: Sequelize.STRING,
 		unique: true
 	},
-	title: {
+	image: {
 		type: Sequelize.STRING,
 		unique: true
 	},
@@ -17,8 +20,13 @@ var Tour = db.define('tour', {
 	rating: {
 		type: Sequelize.FLOAT
 	},
-	numReviews: {
-		type: Sequelize.INTEGER
+	review: {
+		type: Sequelize.INTEGER,
+		model: 'review',
+		key: 'id'
+	},
+	category: {
+		type: Sequelize.STRING,
 	},
 	description: {
 		type: Sequelize.TEXT
@@ -26,13 +34,18 @@ var Tour = db.define('tour', {
 	duration: {
 		type: Sequelize.STRING
 	},
-	id_Guide: {
+	location: {
 		type: Sequelize.INTEGER,
-		model: 'user',
+		model: 'location',
 		key: 'id'
-	}
+	},
+	availability: {
+		type: Sequelize.INTEGER,
+		model: 'timetable',
+		key: 'id'
+	},
 });
-
-User.hasMany(Tour);
+Tour.hasMany(TimeTable);
+// Tour.hasMany(User, {through: Traveler_Tour});
 db.sync();
 module.exports = Tour;
