@@ -2,14 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { connect } from 'react-redux'
-import store from '../store'
 import FormComponent from './formComponent'
 import SubmitButton from './SubmitButton'
 import { setTourItem } from '../actions/tourActions'
+import { handleItemChange } from '../helpers/changeHandlers'
 
 class Create extends React.Component {
-  handleItemChange(item, event) {
-    store.dispatch(setTourItem(item, event.target.value));
+  constructor(props) {
+    super(props);
+    this.handleItemChange = handleItemChange.bind(null, setTourItem);
   }
 
   handleSubmit(event) {

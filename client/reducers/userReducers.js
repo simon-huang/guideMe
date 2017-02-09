@@ -5,12 +5,12 @@ var userDefaults = {
 
 export function authFormInputReducer(state = userDefaults, action) {
   switch(action.type) {
-    case "SET_USERNAME":
+    case "SET_AUTH_INPUT_USERNAME":
       return {
         ...state,
         username: action.username
       };
-    case "SET_PASSWORD":
+    case "SET_AUTH_INPUT_PASSWORD":
       return {
         ...state,
         password: action.password

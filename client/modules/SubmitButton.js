@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default props => (
   <div className="form-group">
     <div className="col-sm-offset-2 col-sm-10">

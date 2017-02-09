@@ -1,18 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import store from '../store'
 import NavLink from './NavLink'
 import FormComponent from './formComponent'
 import SubmitButton from './SubmitButton'
-import { submitLoginUser } from '../actions/userActions'
+import { setAuthInput, submitLoginUser } from '../actions/userActions'
+import { handleItemChange } from '../helpers/changeHandlers'
 
 class LogIn extends React.Component {
-  handleItemChange(item, event) {
-    store.dispatch(submitLoginUser(item, event.target.value));
+  constructor(props) {
+    super(props);
+    this.handleItemChange = handleItemChange.bind(null, setAuthInput);
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    //post here
   }
 
   render() {
@@ -35,4 +37,4 @@ class LogIn extends React.Component {
   }
 }
 
-export default connect(({ authFormInput }) => { return { authFormInput }; });
+export default connect(({ authFormInput }) => { return { authFormInput }; })(LogIn);
