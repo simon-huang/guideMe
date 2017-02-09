@@ -5,7 +5,12 @@ var Review = db.define('review', {
 	content: {
 		type: Sequelize.STRING
 	},
-	id_users: {
+	id_traveler: {
+		type: Sequelize.INTEGER,
+		model: 'user',
+		key: 'id'
+	},
+	id_guide: {
 		type: Sequelize.INTEGER,
 		model: 'user',
 		key: 'id'

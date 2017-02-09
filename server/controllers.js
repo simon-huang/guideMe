@@ -24,15 +24,6 @@ module.exports = {
           res.sendStatus(404);
         });
     },
-    // post: function(req, res) {
-//       models.tours.post(req.body, function(err, results) {
-//         if (err) {
-//           console.error(err);
-//           res.sendStatus(501);
-//         }
-//         res.sendStatus(201);
-//       });
-//     }
     post: function(req, res) {
       console.log('in post', req.body);
       Tour.create(req.body)
@@ -73,11 +64,7 @@ module.exports = {
         })
     },
     post: function(req, res) {
-      console.log('req.params', req.body);
-      console.log('username', req.body.username);
-      console.log('password', req.body.password);
       var password = User.generateHash(req.body.password);
-      console.log('hash', password);
       User.findOrCreate({
           where: {
             username: req.body.username
@@ -88,7 +75,6 @@ module.exports = {
         })
         .spread(function(user, created) {
             if (created) {
-              console.log('User was successfully created');  
               req.session.regenerate(function() {
                 req.session.user = req.body.username;
                 res.sendStatus(201);
@@ -107,78 +93,3 @@ module.exports = {
     }
   }
 }
-
-/****** The following is original code from previous group ******/
-// var models = require('./models');
-
-// module.exports = {
-//   tours: {
-//     getAll: function(req, res) {
-//       models.tours.getAll(function(err, results) {
-//         if (err) {
-//           console.error(err);
-//         }
-//         res.send(results);
-//       });
-//     },
-//     getOne: function(req, res) {
-//       var TourId = req.params.id;
-//       models.tours.getOne(TourId, function(err, result) {
-//         if (err) {
-//           console.error(err);
-//         }
-//         res.json(result);
-//       });
-//     },
-//     post: function(req, res) {
-//       models.tours.post(req.body, function(err, results) {
-//         if (err) {
-//           console.error(err);
-//           res.sendStatus(501);
-//         }
-//         res.sendStatus(201);
-//       });
-//     }
-//   },
-//   users: {
-//     getUserForPage: function(req, res) {
-//       // return user object to load their personal dashboard page, with data added to database such as tours they've taken, booked, etc;
-//       var username = req.params.username;
-//       models.users.get(req.params.username, function(err, result) {
-//         if (err) {
-//           console.error(err);
-//         }
-//       res.json(result);
-//       });
-//     },
-//     getUserForLogin: function(req, res) {
-//       models.users.check(req.body, function(err, result) {
-//         if (err) {
-//           console.error(err);
-//         }
-//         if (result === '404') {
-//           res.sendStatus(404);
-//         } else {
-//           req.session.regenerate(function() {
-//             req.session.user = req.body.username;
-//             res.send(result);
-//           });
-//         }
-//       });
-//     },
-//     post: function(req, res) {
-//       models.users.post(req.body, function(err, result) {
-//         if (err) {
-//           console.error(err)
-//           res.sendStatus(501);
-//         } else {
-//           req.session.regenerate(function() {
-//             req.session.user = req.body.username;
-//             res.sendStatus(201);
-//           });
-//         }
-//       });
-//     }
-//   },
-//   reviews: {}
-// }

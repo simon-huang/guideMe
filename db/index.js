@@ -12,7 +12,7 @@
 
 var Sequelize = require('sequelize');
 var cfg = {
-	myLocalDB: 'mydb',
+	myLocalDB: 'guideme1',
 	myLocalDBRole: 'aishi',
 	myLocalDBPassword: '',
 	secret: 'It is a secret',
