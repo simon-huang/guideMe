@@ -14,6 +14,18 @@ export function submitLoginUser(user) {
   );
 }
 
+export function submitLogout() {
+  return dispatch => (
+    axios.get('/auth/logout').then((response) => {
+      dispatch(logoutUser());
+      browserHistory.push('/');
+    }).catch(err => {
+      dispatch(logoutError());
+    })
+  );
+}
+
+
 export function assignUser(user) {
   return {
     type: "LOGIN_SUCCESSFUL",
@@ -24,6 +36,19 @@ export function assignUser(user) {
 export function assignLoginError(err) {
   return {
     type: "LOGIN_ERROR",
+    err: err
+  };
+}
+
+export function logoutUser() {
+  return {
+    type: 'LOGOUT_SUCCESSFUL'
+  };
+}
+
+export function logoutError() {
+  return {
+    type: "LOGOUT_ERROR",
     err: err
   };
 }

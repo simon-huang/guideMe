@@ -3,14 +3,14 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import logger from 'redux-logger';
 import { createTourReducer, toursReducer } from './reducers/toursReducer';
-import { authFormInputReducer, userSigninReducer } from './reducers/userReducers';
+import { authFormInputReducer, userAuthReducer } from './reducers/userReducers';
 
 const rootReducer = 
   combineReducers({
     tours: toursReducer, 
     inCreation: createTourReducer,
     authFormInput: authFormInputReducer, 
-    user: userSigninReducer,
+    user: userAuthReducer,
   });
 
 const middleware = applyMiddleware(logger(), promise(), thunk);

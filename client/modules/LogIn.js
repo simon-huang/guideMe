@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import store from '../store'
 import NavLink from './NavLink'
 import FormComponent from './formComponent'
 import SubmitButton from './SubmitButton'
@@ -10,11 +11,12 @@ class LogIn extends React.Component {
   constructor(props) {
     super(props);
     this.handleItemChange = handleItemChange.bind(null, setAuthInput);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    //post here
+    store.dispatch(submitLoginUser(this.props.authFormInput));    
   }
 
   render() {
