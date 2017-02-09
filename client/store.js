@@ -8,7 +8,6 @@ const rootReducer =
   combineReducers({
     tours: toursReducer, 
     inCreation: createTourReducer,
-
   });
 
 const middleware = applyMiddleware(logger(), promise(), thunk);

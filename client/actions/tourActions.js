@@ -20,6 +20,7 @@ function setTourItem(item, value) {
 
   toReturn[item.toLowerCase()] = value;
 
+  console.log('hi', toReturn);
   return toReturn;
 }
 

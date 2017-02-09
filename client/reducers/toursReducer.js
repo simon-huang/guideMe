@@ -10,47 +10,40 @@ export function toursReducer(state = [], action) {
   }
 }
 
-export function createTourReducer(state = {}, action) {
+var inCreationDefaults = {
+  title: '',
+  image: '',
+  price: '',
+  time: '',
+  description: ''
+};
+
+export function createTourReducer(state = inCreationDefaults, action) {
   switch(action.type) {
     case "SET_TOUR_TITLE":
       return {
         ...state,
-        inCreation: {
-          ...inCreation,
-          title: action.title
-        }
+        title: action.title
       };
     case "SET_TOUR_IMAGE":
       return {
         ...state,
-        inCreation: {
-          ...inCreation,
-          image: action.image
-        }
+        image: action.image
       };
     case "SET_TOUR_PRICE":
       return {
         ...state,
-        inCreation: {
-          ...inCreation,
-          price: action.price
-        }
+        price: action.price
       };
     case "SET_TOUR_DURATION":
       return {
         ...state,
-        inCreation: {
-          ...inCreation,
-          duration: action.duration
-        }
+        duration: action.duration
       };
     case "SET_TOUR_DESCRIPTION":
       return {
         ...state,
-        inCreation: {
-          ...inCreation,
-          description: action.description
-        }
+        description: action.description
       };
     default:
       return state;
