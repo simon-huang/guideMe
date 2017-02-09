@@ -1,29 +1,39 @@
 import axios from 'axios';
-import { browserHistory };
+import { browserHistory } from 'react-router';
 
-function submitLoginUser(user) {
+export function submitLoginUser(user) {
   return dispatch => (
-    axios.post('/login', user).then(resp => {
+    axios.post('/auth/login', user).then(resp => {
       if (resp.status === 200) {
         dispatch(assignUser(resp.data[0]));
         browserHistory.push('/users/' + resp.data[0]);
       }
     }).catch(err => {
       dispatch(assignLoginError(err));
-    });
+    })
   );
 }
 
-function assignUser(user) {
+export function assignUser(user) {
   return {
     type: "LOGIN_SUCCESSFUL",
     user: user
   };
 }
 
-function assignLoginError(err) {
+export function assignLoginError(err) {
   return {
     type: "LOGIN_ERROR",
     err: err
   };
+}
+
+export function setAuthInput(item, value) {
+  var toReturn = {
+    type: 'SET_AUTH_INPUT_' + item.toUpperCase(),
+  };
+
+  toReturn[item.toLowerCase()] = value;
+
+  return toReturn;
 }

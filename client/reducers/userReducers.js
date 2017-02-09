@@ -3,7 +3,7 @@ var userDefaults = {
   password: ''
 };
 
-export function createUserReducer(state = userDefaults, action) {
+export function authFormInputReducer(state = userDefaults, action) {
   switch(action.type) {
     case "SET_USERNAME":
       return {
@@ -32,5 +32,7 @@ export function userSigninReducer(state = {}, action) {
         ...state,
         loginError: action.err
       };
+    default:
+      return state;
   }
 }

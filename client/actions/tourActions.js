@@ -9,7 +9,7 @@ function setTourList(tours) {
 
 function setTourListWithData() {
   return (dispatch) => (
-    axios.get('/tours').then(resp => dispatch(setTourList(resp.data)))
+    axios.get('/api/tours').then(resp => dispatch(setTourList(resp.data)))
   )
 }
 
@@ -20,7 +20,6 @@ function setTourItem(item, value) {
 
   toReturn[item.toLowerCase()] = value;
 
-  console.log('hi', toReturn);
   return toReturn;
 }
 

@@ -3,13 +3,13 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import logger from 'redux-logger';
 import { createTourReducer, toursReducer } from './reducers/toursReducer';
-import { createUserReducer, userSigninReducer } from './reducers/userReducers';
+import { authFormInputReducer, userSigninReducer } from './reducers/userReducers';
 
 const rootReducer = 
   combineReducers({
     tours: toursReducer, 
     inCreation: createTourReducer,
-    createUser: createUserReducer, 
+    authFormInput: authFormInputReducer, 
     user: userSigninReducer,
   });
 

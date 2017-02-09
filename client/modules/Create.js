@@ -3,8 +3,9 @@ import axios from 'axios'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { connect } from 'react-redux'
 import store from '../store'
-import { setTourItem } from '../actions/tourActions'
 import FormComponent from './formComponent'
+import SubmitButton from './SubmitButton'
+import { setTourItem } from '../actions/tourActions'
 
 class Create extends React.Component {
   handleItemChange(item, event) {
@@ -32,11 +33,7 @@ class Create extends React.Component {
         <FormComponent name='price' value={this.props.price} onChange={this.handleItemChange} />
         <FormComponent name='time' value={this.props.time} onChange={this.handleItemChange} />
         <FormComponent name='description' value={this.props.description} onChange={this.handleItemChange} />
-        <div className="form-group">
-          <div className="col-sm-offset-2 col-sm-10">
-            <input type="submit" value="Submit" className="btn btn-default"/>
-          </div>
-        </div>        
+        <SubmitButton />
       </form>
     );
   }
