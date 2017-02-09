@@ -1,5 +1,7 @@
-import controller from '../controllers';
+// import controller from '../controllers';
 import path from 'path';
+import userController from '../../db/users/userController';
+import tourController from '../../db/tours/tourController';
 
 var checkUser = function(req, res, next) {
   if (!req.session) {
@@ -17,14 +19,14 @@ var logOut = function(req, res) {
 };
 
 export default function routes(app, express) {
-  app.get('/tours', controller.tours.getAll);
-  app.get('/tours/:id', controller.tours.getOne);
-  app.post('/tours', checkUser, controller.tours.post);
+  app.get('/tours', tourController.getAll);
+  app.get('/tours/:id', tourController.getOneByTitle);
+  app.post('/tours', checkUser, tourController.post);
   
-  app.get('/users/:username', controller.users.getUserForPage);
+  app.get('/users/:username', userController.getUserForPage);
   app.get('/logout', logOut);
-  app.post('/login', controller.users.getUserForLogin);
-  app.post('/signup', controller.users.post);
+  app.post('/login', userController.getUserForLogin);
+  app.post('/signup', userController.post);
   
   app.use('*', (req, res, next) => {
     res.sendFile(path.join(__dirname, '../../public/index.html'));
