@@ -1,71 +1,35 @@
 import React from 'react'
-import axios from 'axios'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import FormComponent from './formComponent'
+import SubmitButton from './SubmitButton'
+import { setAuthInput, submitSignupUser } from '../actions/userActions'
+import { handleItemChange } from '../helpers/changeHandlers'
 
 export default class SignUp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: '',
-      password: '' ,
-      user: {}
-    };
 
-    this.handleUsername = this.handleUsername.bind(this);
-    this.handlePassword = this.handlePassword.bind(this);
+    this.handleItemChange = handleItemChange.bind(null, setAuthInput);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleUsername(event) {
-    this.setState({username: event.target.value});
-  }
-
-  handlePassword(event) {
-    this.setState({password: event.target.value});
-  }
-
   handleSubmit(event) {
-    console.log('handleSubmit');
-    axios.post('/signup', this.state).then((response) => {
-      if (response.status === 201) {
-        browserHistory.push('/users/' + this.state.username);
-      }
-    });
     event.preventDefault();
+    this.props.dispatch(submitSignupUser(this.props.authFormInput));
   }
 
   render() {
-
-    const href = "/Users/" + this.state.username;
-
     return (
       <form onSubmit={this.handleSubmit} className="form-horizontal">
-        <div className="space"></div>
-        <div className="space"></div> 
-        <h1 className="text-center">
-          Sign up
-        </h1>
-        <div className="space">
-        </div>         
+        <div className="space" />
+        <div className="space" />
+        <h1 className="text-center"> Sign up </h1>
+        <div className="space" />
         <div className="form-group">
-          <label className="col-sm-2 control-label">Username:</label>
-          <div className="col-sm-8">
-            <input type="text" name="username" className="form-control" value={this.state.username} onChange={this.handleUsername} />
-          </div>
+          <FormComponent name='username' value={this.props.authFormInput.username} onChange={this.handleItemChange} />
+          <FormComponent name='password' value={this.props.authFormInput.password} onChange={this.handleItemChange} />
         </div>
-        <div className="form-group">
-          <label className="col-sm-2 control-label">Password:</label>
-          <div className="col-sm-8">
-            <input type="password" name="password" className="form-control" value={this.state.password} onChange={this.handlePassword} />
-          </div>
-        </div>
-        <div className="form-group">
-          <div className="col-sm-offset-2 col-sm-10">
-            <input type="submit" value="Submit" className="btn btn-default"/>
-          </div>
-        </div>                  
+        <SubmitButton />
       </form>
     );
   }
 }
-
