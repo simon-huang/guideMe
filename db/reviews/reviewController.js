@@ -1,6 +1,13 @@
 var Review = require('./reviewModel.js');
 
 var reviewController = {
+    // req.body.review = {
+    //   tour: tour_title, 
+    //   reviewer: user_id, 
+    //   guide: user_id,
+    //   content: content,
+    //   time: time // this maybe not necessary, since query has timestamp  
+    // }
 
   post: function(req, res) {
     console.log('post a review, req.body = ', req.body);
@@ -22,6 +29,17 @@ var reviewController = {
         console.log('error in getting all reviews for one tour, ', err);
         res.sendStatus(404);
       });
+
+  },
+  getAllForOneGuide: function(req, res) {
+    var guideName = req.body.guideName;
+    Review.findAll({
+      include:[{
+        model: User,
+        where: {name: guideName}
+      }]
+    })
+
   }
 }
 
