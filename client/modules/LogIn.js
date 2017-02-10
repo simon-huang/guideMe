@@ -33,6 +33,7 @@ export default class LogIn extends React.Component {
           <FormComponent name='username' value={this.props.authFormInput.username} onChange={this.handleItemChange} />
           <FormComponent name='password' value={this.props.authFormInput.password} onChange={this.handleItemChange} />
         </div>
+
         <SubmitButton />
       </form>
     );

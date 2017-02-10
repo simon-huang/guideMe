@@ -1,27 +1,39 @@
 import axios from 'axios';
 
-function createTour(tour) {
+export function createTour(tour) {
   return dispatch => (
     axios.post('/api/tours', tour)
       .then(resp => {
+        if (resp.status === 201) {
+          dispatch(setTourListWithData());
+        }
+      }).catch(err => {
+        dispatch(createTourError(err));
       })
   );
 }
 
-function setTourList(tours) {
+export function creatTourError(err) {
+  return {
+    type: "CREATE_TOUR_ERROR",
+    err,
+  }
+}
+
+export function setTourList(tours) {
   return {
     type: "SET_TOUR_LIST",
     tours
   };
 }
 
-function setTourListWithData() {
+export function setTourListWithData() {
   return (dispatch) => (
     axios.get('/api/tours').then(resp => dispatch(setTourList(resp.data)))
   )
 }
 
-function setTourItem(item, value) {
+export function setTourItem(item, value) {
   var toReturn = {
     type: 'SET_TOUR_' + item.toUpperCase()
   };
@@ -30,5 +42,3 @@ function setTourItem(item, value) {
 
   return toReturn;
 }
-
-export { setTourList, setTourListWithData, setTourItem };
