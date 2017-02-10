@@ -35,10 +35,10 @@ export function createTourReducer(state = inCreationDefaults, action) {
         ...state,
         price: action.price
       };
-    case "SET_TOUR_DURATION":
+    case "SET_TOUR_TIME":
       return {
         ...state,
-        duration: action.duration
+        time: action.time
       };
     case "SET_TOUR_DESCRIPTION":
       return {
