@@ -38,10 +38,10 @@ class User extends React.Component {
 var UserInfo = (props) => {
   if (!props.user.image) {
     return (
-    <div>
-      <img src={props.user.image}>
-      <p>{props.user.bio}</p>
-    </div>
+      <div>
+        <img src={props.user.image} />
+        <p>{props.user.bio}</p>
+      </div>
     );
   }
   return (
@@ -54,12 +54,15 @@ var UserInfo = (props) => {
 var TourPreview = (props) => {
   if (props.tour.review) {
     return (
-      <h2>{props.tour.name}</h2>
-      <span>{props.tour.location}</span>
-      <span>{props.tour.rating}</span>
-      <h3>User Review</h3>
-      <span>{props.tour.review.content}</span>
-      <span>User rating (not in schema yet)</span>
+      <div>
+        <h2>{props.tour.name}</h2>
+        <span>{props.tour.location}</span>
+        <span>{props.tour.rating}</span>
+
+        <h3>User Review</h3>
+        <span>{props.tour.review.content}</span>
+        <span>User rating (not in schema yet)</span>
+      </div>
     );
   }
 
@@ -74,8 +77,7 @@ var TourPreview = (props) => {
 
 var UserHistory = (props) => {
   return (
-
-
+    <div />
   );
 };
 
