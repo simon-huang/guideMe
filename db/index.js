@@ -12,8 +12,8 @@
 
 var Sequelize = require('sequelize');
 var cfg = {
-	myLocalDB: 'guideme1',
-	myLocalDBRole: 'aishi',
+	myLocalDB: 'tour',
+	myLocalDBRole: 'simonhuang',
 	myLocalDBPassword: '',
 	secret: 'It is a secret',
 };
@@ -27,6 +27,11 @@ var sequelize = new Sequelize(cfg.myLocalDB, cfg.myLocalDBRole, cfg.myLocalDBPas
 		idle: 10000
 	}
 });
+// var connection = mysql.createConnection({
+//   user: 'root',
+//   password: '',
+//   database: 'guideme'
+// });
 
 sequelize.authenticate()
 	.then(function(err) {
