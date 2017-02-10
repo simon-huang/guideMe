@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import NavLink from './NavLink'
 
 export default ({ tours, params }) => {

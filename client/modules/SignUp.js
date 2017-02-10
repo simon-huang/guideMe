@@ -1,12 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import store from '../store'
 import FormComponent from './formComponent'
 import SubmitButton from './SubmitButton'
 import { setAuthInput, submitSignupUser } from '../actions/userActions'
 import { handleItemChange } from '../helpers/changeHandlers'
 
-class SignUp extends React.Component {
+export default class SignUp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +14,7 @@ class SignUp extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    store.dispatch(submitSignupUser(this.props.authFormInput));
+    this.props.dispatch(submitSignupUser(this.props.authFormInput));
   }
 
   render() {
@@ -35,5 +33,3 @@ class SignUp extends React.Component {
     );
   }
 }
-
-export default connect(({ authFormInput }) => { return { authFormInput }; })(SignUp);
