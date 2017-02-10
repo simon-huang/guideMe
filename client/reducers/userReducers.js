@@ -20,12 +20,12 @@ export function authFormInputReducer(state = userDefaults, action) {
   }
 }
 
-export function userAuthReducer(state = {}, action) {
+export function userAuthReducer(state = userDefaults, action) {
   switch(action.type) {
     case "LOGIN_SUCCESSFUL":
       return {
         ...state,
-        user: action.user
+        ...action.user
       };
     case 'LOGIN_ERROR':
       return {
@@ -33,10 +33,7 @@ export function userAuthReducer(state = {}, action) {
         loginError: action.err
       };
     case 'LOGOUT_SUCCESSFUL':
-      return {
-        ...state,
-        user: null
-      };
+      return null;
     case 'LOGOUT_ERROR':
       return {
         ...state,

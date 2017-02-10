@@ -10,6 +10,7 @@ import { handleItemChange } from '../helpers/changeHandlers'
 class LogIn extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleItemChange = handleItemChange.bind(null, setAuthInput);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

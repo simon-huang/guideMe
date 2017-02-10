@@ -11,7 +11,7 @@ export default class Tour extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/tours/' + this.props.params.TourID).then((response) => {
+    axios.get('/api/tours/' + this.props.params.TourID).then((response) => {
       this.setState({singleTour: response.data[0]});
     });
   }
@@ -49,19 +49,3 @@ export default class Tour extends React.Component {
     );
   }
 }
-
-
-
-
-
-// {
-//   image:  'https://a0.muscache.com/im/pictures/89957997-2e3f-40cb-8f0b-dcbd5626bd9c.jpg?aki_policy=large',
-//   title: 'Maverick Biker',
-//   tourGuide: 'Mark',
-//   price: '$125',
-//   time: '3 days',
-//   rating: 2,
-//   numberOfReviews: 2,
-//   id: 6,
-//   description: `We'll meet at my business, where I’ll hook you up with the bike you’ll use for the duration of our time together. I’ll introduce you to my colleagues, show you around and talk about why our business is special. From there we'll cross the elegant Vedado neighborhood to find my favorite coffee shop, Mamainés. I’ll leave you with some tips on places to ride before we reunite again. In order to get to Café Mamainé I will take you through my favorite neighborhood, El Vedado, a place that mixes history, elegance, and the vibrant energy of the "new Cuba."`
-// } 

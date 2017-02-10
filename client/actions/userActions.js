@@ -1,17 +1,28 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 
-export function submitLoginUser(user) {
+export function getUserInfo(user) {
   return dispatch => (
-    axios.post('/auth/login', user).then(resp => {
-      if (resp.status === 200) {
-        dispatch(assignUser(resp.data[0]));
-        browserHistory.push('/users/' + resp.data[0]);
-      }
-    }).catch(err => {
-      dispatch(assignLoginError(err));
+    axios.get('api/users/' + user.username).then(resp => {
+      console.log('this is resp', resp);
+      dispatch(assignUser(user));
+      browserHistory.push('/users/' + user.username);
     })
   );
+}
+
+export function submitLoginUser(user) {
+  return dispatch => {
+    if (user.username !== '' && user.password !== '') {
+      axios.post('/auth/login', user).then(resp => {
+        if (resp.status === 200) {
+          dispatch(getUserInfo(user));
+        }
+      }).catch(err => {
+        dispatch(assignLoginError(err));
+      });
+    };
+  }
 }
 
 export function submitLogout() {
@@ -23,6 +34,21 @@ export function submitLogout() {
       dispatch(logoutError());
     })
   );
+}
+
+export function submitSignupUser(user) {
+  return dispatch => {
+    if (user.username !== '' && user.password !== '') {
+      axios.post('/auth/signup', user).then(resp => {
+        if (resp.status === 201) {
+          dispatch(assignUser(user));
+          browserHistory.push('/users/' + user.username);
+        }
+      }).catch(err => {
+        dispatch(assignLoginError());
+      });
+    }
+  };
 }
 
 
@@ -62,3 +88,4 @@ export function setAuthInput(item, value) {
 
   return toReturn;
 }
+

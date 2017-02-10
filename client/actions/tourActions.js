@@ -1,5 +1,17 @@
 import axios from 'axios';
 
+function getTour(tourID) {
+  return dispatch => (
+    axios.get('/api/tours/' + tourID).then((response) => {
+      this.setState({singleTour: response.data[0]});
+    })
+  )
+}
+
+function setTour(tourID) {
+  
+}
+
 function setTourList(tours) {
   return {
     type: "SET_TOUR_LIST",
