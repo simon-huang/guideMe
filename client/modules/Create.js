@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import FormComponent from './formComponent'
 import FormTextArea from './formTextArea'
 import SubmitButton from './SubmitButton'
