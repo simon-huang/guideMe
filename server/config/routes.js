@@ -1,5 +1,7 @@
-import controller from '../controllers';
+// import controller from '../controllers';
 import path from 'path';
+import userController from '../../db/users/userController';
+import tourController from '../../db/tours/tourController';
 
 var checkUser = function(req, res, next) {
   if (!req.session) {
