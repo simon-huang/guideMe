@@ -2,50 +2,38 @@ import React from 'react'
 import axios from 'axios'
 import NavLink from './NavLink'
 
-export default class Tour extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      singleTour: {}
-    };
+export default ({ tours, params }) => {
+  if (!tours) {
+    return (<div />);
   }
 
-  componentDidMount() {
-    axios.get('/api/tours/' + this.props.params.TourID).then((response) => {
-      this.setState({singleTour: response.data[0]});
-    });
+  const id = params.TourID;
+  const thisTour = tours.find(elem => elem.id == id);
+  const divStyle = {
+    backgroundImage: 'url(' + thisTour.image + ')'
   }
 
-  render() {
-    if (this.state.singleTour == {}) {
-      return (
-        <div></div>
-      );
-    }
-    const id = this.props.params.TourID;
-    const thisTour = this.state.singleTour;
-    const divStyle = {
-      backgroundImage: 'url(' + thisTour.image + ')'
-    }
-    return (
-      <div className="container text-center ">
-        <div className="space">
-        </div> 
-        <h1 className="text-center">
-          {thisTour.title}
-        </h1>
-        <div className="space">
-        </div> 
-        <div className="center-cropped-tour col-md-6" style={divStyle}>
-        </div>
-        <div className="space">
-        </div>
-        <h3>Tour guide:{thisTour.tourGuide}</h3>
-        <h3>Price:{thisTour.price}</h3>
-        <h3>Time:{thisTour.time}</h3>
-        <p>{thisTour.description}</p>
-        <NavLink to="/Login"><button type="button" className="btn btn-primary btn-lg btn-block">Book this experience</button></NavLink>
-      </div>
-    );
-  }
+  return (
+    // Button doesn't do anything aside from take you to login, make sure to refactor
+    <div className="container text-center ">
+
+      <div className="space" /> 
+      <h1 className="text-center">{thisTour.title}</h1>
+      <div className="space" />
+
+      <div className="center-cropped-tour col-md-6" style={divStyle} />
+      <div className="space" />
+
+      <h3>Tour guide: {thisTour.tourGuide}</h3>
+      <h3>Price: {thisTour.price}</h3>
+      <h3>Time: {thisTour.time}</h3>
+      <p>{thisTour.description}</p>
+
+      <NavLink to="/Login">
+        <button type="button" className="btn btn-primary btn-lg btn-block">
+          Book this experience
+        </button>
+      </NavLink>
+    </div>
+  );
 }

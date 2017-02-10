@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import store from '../store'
 import NavLink from './NavLink'
 import { setTourListWithData } from '../actions/tourActions'
 
@@ -7,8 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     console.log('ksdjkf', this.props); 
-    //if (!this.props.tours.tours)
-    //  store.dispatch(setTourListWithData());
+    if (!this.props.tours.tours)
+      store.dispatch(setTourListWithData());
   }
 
   render() {
@@ -23,18 +24,19 @@ class App extends React.Component {
           <li className="navbar-right navb"><NavLink to="/Logout">Log out</NavLink></li>
         </ul>
         { 
+          this.props.tours.tours ? 
           React.cloneElement(this.props.children, 
             {
-              authFormInput: this.props.authFormInput
+              authFormInput: this.props.authFormInput,
               dispatch: this.props.dispatch,
               inCreation: this.props.inCreation,
-              tours: this.props.tours 
+              tours: this.props.tours.tours, 
               user: this.props.user
             }
-          )
+          ) : (<h1>LOADING PLEASE WAIT</h1>)
         }
       </div>
-    );
+    )
   }
 }
 
