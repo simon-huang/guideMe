@@ -4,7 +4,7 @@ function createTour(tour) {
   return dispatch => (
     axios.post('/api/tours', tour)
       .then(resp => {
-      });
+      })
   );
 }
 
