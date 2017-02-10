@@ -7,7 +7,7 @@ import { setTourListWithData } from '../actions/tourActions'
 class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log('ksdjkf', this.props); 
+
     if (!this.props.tours.tours)
       store.dispatch(setTourListWithData());
   }
