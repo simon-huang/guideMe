@@ -20,6 +20,11 @@ var inCreationDefaults = {
 
 export function createTourReducer(state = inCreationDefaults, action) {
   switch(action.type) {
+    case "CREATE_TOUR_ERROR":
+      return {
+        ...state,
+        error: action.err
+      };
     case "SET_TOUR_TITLE":
       return {
         ...state,

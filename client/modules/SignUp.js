@@ -22,12 +22,15 @@ export default class SignUp extends React.Component {
       <form onSubmit={this.handleSubmit} className="form-horizontal">
         <div className="space" />
         <div className="space" />
+
         <h1 className="text-center"> Sign up </h1>
         <div className="space" />
+
         <div className="form-group">
           <FormComponent name='username' value={this.props.authFormInput.username} onChange={this.handleItemChange} />
           <FormComponent name='password' value={this.props.authFormInput.password} onChange={this.handleItemChange} />
         </div>
+
         <SubmitButton />
       </form>
     );
