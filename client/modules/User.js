@@ -2,70 +2,105 @@ import React from 'react'
 import axios from 'axios'
 import ListElement from './ListElement'
 
-export default class User extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      //mock data: real tours will be generated using the current user's id
-      tours: [
-          {
-            image:  'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR8x_K4HtJY_cArGL5J9W8K_lp9wAkt0W1bk-8JZ_510IOjRdObdw',
-            title: 'Swimming under the Golden Gate Bridge',
-            tourGuide: 'Mark',
-            price: 400,
-            time: '2 hours',
-            rating: 4.3,
-            numberOfReviews: 65,
-            id: 5,
-            description: 'Loemkjfadhljkadshfkljadshgkljadshgkljadhglkhadgkljhadfklghadflkjsadfdsafasdgsdgadsggh'
-          },
-          {
-            image:  'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSlgLESw2gqJmCdxhrITEvF0fsOnx-4MURivJHgE7BizCcvpeBeZA',
-            title: 'Swimming under the Golden Gate Bridge',
-            tourGuide: 'Mark',
-            price: 125,
-            time: '2 hours',
-            rating: 2,
-            numberOfReviews: 2,
-            id: 6,
-            description: 'Loemkjfadhljkadshfkljadshgkljadshgkljadhglkhadgkljhadfklghadflkjsadfdsafasdgsdgadsggh'
-          } 
-      ]
-    };
-  }
-
-  componentDidMount() {
-    console.log(this.props.params.username);
-    axios.get('/users/' + this.props.params.username ).then((response) => {
-      console.log(response);
-      this.setState({user: response.data[0]});
-    });
-  }
-
+class User extends React.Component {
   render() {
-    if (this.state.user == {}) {
+    if (this.props.user !== this.props.userWhoIsLoggedIn) {
       return (
-        <div></div>
+        <div>
+          <h1>
+            {user.username}
+          </h1>
+
+          <UserInfo user={this.props.user}/>
+
+          <h2>Recent Activity</h2>
+          <UserHistory user={this.props.user}/>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1>
+            {user.username}
+          </h1>
+
+          <h2>Upcoming Tours</h2>
+          <UserUpcomingTours user={this.props.user}/>
+
+          <h2>Recent Activity</h2>
+          <UserHistory user={this.props.user}/>
+        </div>
       );
     }
-
-    return (
-
-      <div className="container text-center ">
-        <div className="space">
-        </div> 
-        <h1 className="text-center">
-          Hello, {this.props.params.username }!
-        </h1>
-        <div className="space">
-        </div> 
-        <h2>View your tours below: </h2>
-        <div className="row">
-          { this.state.tours.map((listElement)=>
-            <ListElement listElement={listElement} key={listElement.id}/> 
-          )}
-        </div>
-      </div>
-    );
   }
 }
+
+var UserInfo = (props) => {
+  if (!props.user.image) {
+    return (
+    <div>
+      <img src={props.user.image}>
+      <p>{props.user.bio}</p>
+    </div>
+    );
+  }
+  return (
+    <div>
+      <p>{props.user.bio}</p>
+    </div>
+  );
+};
+
+
+var TourPreview = (props) => {
+  if (props.tour.review) {
+    return (
+      <h2>{props.tour.name}</h2>
+      <span>{props.tour.location}</span>
+      <span>{props.tour.rating}</span>
+      <h3>User Review</h3>
+      <span>{props.tour.review.content}</span>
+      <span>User rating (not in schema yet)</span>
+    );
+  }
+
+  return (
+    <div>
+      <h2>{props.tour.name}</h2>
+      <span>{props.tour.location}</span>
+      <span>{props.tour.rating}</span>
+    </div>
+  );
+}
+
+var UserHistory = (props) => {
+  return (
+
+
+  );
+};
+
+var UserUpcomingTours = (props) => {
+
+};
+
+
+
+
+// User.propTypes = {
+//   // redux store states
+//   // user, userWhoIsLoggedIn
+//   // redux action hookups
+// };
+
+// var mapStateToProps = function(state){
+//     return {__:state.__};
+// };
+
+// var mapDispatchToProps = function(dispatch){
+//     return {
+//         __: function(args){ dispatch(actions.__(args)); }
+//     }
+// };
+
+// module.exports = ReactRedux.connect(mapStateToProps,mapDispatchToProps)(User);
