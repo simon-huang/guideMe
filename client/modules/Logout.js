@@ -2,9 +2,15 @@ import React from 'react'
 import { submitLogout } from '../actions/userActions'
 
 export default class Logout extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
   handleLogout(e) {
     e.preventDefault();
-    store.dispatch(submitLogout());
+    this.props.dispatch(submitLogout());
   }
 
   render() {
@@ -12,6 +18,11 @@ export default class Logout extends React.Component {
       <div className="text-center logout">
         <h1>Are you sure you want to log out?</h1>
 
+        {
+          this.props.user.logoutError ? 
+            <h3>There has been an error while attempting to log out. Please try again later</h3> : 
+            JSON.stringify(this.props.user.logoutError)
+        }
         <button type="button" 
           className="btn btn-primary" 
           onClick={this.handleLogout}>
