@@ -14,8 +14,8 @@ var Sequelize = require('sequelize');
 var cfg = {
 	// you need to create a database in terminal with any name you like
 	// and set myLocalDB as your local database name
-	myLocalDB: 'tour', 
-	myLocalDBRole: 'simonhuang', // change it to your local name
+	myLocalDB: 'guideme1', 
+	myLocalDBRole: 'aishi', // change it to your local name
 	myLocalDBPassword: '',
 	secret: 'It is a secret',
 };

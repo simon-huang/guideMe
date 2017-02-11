@@ -74,14 +74,42 @@ var tourController = {
         console.log('error in get all tours by date');
       })
   },
-  /**
-  * get all tours for certain date
-  */
 
   /**
   * get all tours for certain user and replace the location_id, availability_id
   */
-
+  // getAllForOneUser: function(req, res) {
+  //   User.find({username: req.body.śsername})
+  //     .then(function(user) {
+  //       Traveler_Tour.findAll({
+  //         userId: user.id
+  //       })
+  //       .then(function(queries) {
+  //         var promises = queries.map(function(query) {
+  //           return Tour.find({id: query.tourId});
+  //         });
+  //         return Promise.all(promises);
+  //       })
+  //       .then(function(tours) {
+  //         var promises = tours.map(function(tour) {
+  //           return TimeTable.find({tourId: tour.id});
+  //         });
+  //         var times = Promise.all(promises);
+  //       })
+  //       .then(function(tours) {
+  //         res.send(tours);
+  //         res.sendStatus(200);
+  //       })
+  //       .catch(function(err) {
+  //         console.log('error in find tourId in join table');
+  //         res.sendStatus(501);
+  //       });
+  //     })
+  //     .catch(function(err) {
+  //       console.log('error in get all tours for one user');
+  //       res.sendStatus(501);        
+  //     });
+  // },
   /**
   * req.body.filers should be an object 
   * such as {location: 'San Francisco', duration: '2 hours'}
