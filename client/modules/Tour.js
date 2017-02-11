@@ -2,7 +2,7 @@ import React from 'react'
 import NavLink from './NavLink'
 
 export default ({ tours, params }) => {
-  if (!tours) {
+  if (tours.length === 0) {
     return (<div />);
   }
 
@@ -25,7 +25,7 @@ export default ({ tours, params }) => {
 
       <h3>Tour guide: {thisTour.tourGuide}</h3>
       <h3>Price: {thisTour.price}</h3>
-      <h3>Time: {thisTour.time}</h3>
+      <h3>Duration: {thisTour.duration}</h3>
       <p>{thisTour.description}</p>
 
       <NavLink to="/Login">

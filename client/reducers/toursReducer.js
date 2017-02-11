@@ -11,12 +11,16 @@ var inCreationDefaults = {
   title: '',
   image: '',
   price: '',
-  time: '',
+  duration: '',
   description: ''
 };
 
 export function createTourReducer(state = inCreationDefaults, action) {
   switch(action.type) {
+    case "CLEAR_IN_CREATION":
+      return {
+        ...inCreationDefaults
+      };
     case "CREATE_TOUR_ERROR":
       return {
         ...state,
@@ -37,10 +41,10 @@ export function createTourReducer(state = inCreationDefaults, action) {
         ...state,
         price: action.price
       };
-    case "SET_TOUR_TIME":
+    case "SET_TOUR_DURATION":
       return {
         ...state,
-        time: action.time
+        duration: action.duration
       };
     case "SET_TOUR_DESCRIPTION":
       return {
