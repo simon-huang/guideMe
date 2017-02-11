@@ -1,7 +1,7 @@
 import React from 'react'
 import UserInfo from './UserInfo'
 import UserTimeline from './UserTimeline'
-import TourPreview from './TourPreview'
+// import TourPreview from './TourPreview'
 // import axios from 'axios'
 
 //currentUser = user of page being displayed
@@ -41,7 +41,8 @@ export default class User extends React.Component {
             <UserTimeline whichTours='past' auth='private' tours={this.props.currentUser.tours}/>
           </div>
         );
-      } else if (this.props.currentUser.isGuide) {
+      } 
+    } else if (this.props.currentUser.isGuide) {
         if (this.props.user.username !== this.props.currentUser.username) {
           // render "all" different tours, not all iterations
           return (
@@ -73,7 +74,6 @@ export default class User extends React.Component {
               <span>Modifiable list of upcoming tours</span>
             </div>
           );
-        }
       }
     }
   }
