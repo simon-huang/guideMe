@@ -20,6 +20,7 @@ export default class Create extends React.Component {
 
   render() {
     return (
+      <div className="container">
       <form onSubmit={this.handleSubmit} className="form-horizontal">
         <div className="space" />
         <div className="space" />
@@ -35,6 +36,7 @@ export default class Create extends React.Component {
 
         <SubmitButton />
       </form>
+      </div>
     );
   }
 }

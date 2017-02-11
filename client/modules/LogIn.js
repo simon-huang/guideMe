@@ -20,6 +20,8 @@ export default class LogIn extends React.Component {
 
   render() {
     return (
+      <div className="container">
+      <div id="signin-form">
       <form onSubmit={this.handleSubmit} className="form-horizontal">
         <div className="space" />
         <div className="space" />
@@ -36,6 +38,8 @@ export default class LogIn extends React.Component {
 
         <SubmitButton />
       </form>
+      </div>
+      </div>
     );
   }
 }

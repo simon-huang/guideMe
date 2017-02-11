@@ -1,3 +1,8 @@
+body {
+  font-size: 16px;
+  color: #888;
+}
+
 .active {
   color: green;
 }
@@ -6,11 +11,19 @@
   background-image: url("http://www.sftravel.com/sites/sftraveldev.prod.acquia-sites.com/files/field/image/site-photo.jpg");
   background-color: white;
   margin-bottom: 0;
-  min-height: 40%;
+  min-height: 60%;
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   background-size: cover;
+}
+
+.vertical-center {
+  min-height: 90%; 
+  min-height: 90vh;
+
+  display: flex;
+  align-items: center;
 }
 
 .jumboText {
@@ -18,14 +31,10 @@
   font-size: 2em;
 }
 
-p {
-  font-size: 30px;
-}
-
 .listElement {
 /*  border-style: solid;
   border-width: 1px;*/
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .space {
@@ -33,8 +42,11 @@ p {
 }
 
 .center-cropped {
-  width: 100%;
-  height: 170px;
+/*  width: 100%;
+  height: 240px;*/
+  min-height: 240px;
+  height: auto;
+  width: auto;
   background-position: center center;
   background-size: contain !important;
   background-repeat: no-repeat;
@@ -54,27 +66,63 @@ a {
 }
 
 .navb {
-  font-size: 20px !important;
+  font-size: 16px;
 }
 
 .priceAndTitle {
   color: black !important;
+
 }
 
 .center-cropped-tour {
-  width: 100%;
-  height: 250px;
+/*  width: 100%;
+  height: 240px;*/
   background-position: center center;
-  background-size: contain !important;
+  /*background-size: contain !important;*/
+  background-size: 380px 240px;
   background-repeat: no-repeat;
 }
 
 p {
   white-space: normal !important;
 }
+.form-control {
+  border: none;
+  background-color: rgba(255,255,255, .7);
+}
+.main-content-container {
+  top: -20px;
+}
 
+input {
+  border: 1px #999 solid;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#homepage-search-input {
+  border: none;
+}
 
-
-
-
-
+input:focus {
+  border: none;
+  border-bottom: 1px solid #337ab7;
+  outline: none;
+}
+.add-padding {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+footer {
+  background-color: #f5f5f5;
+  border-top: solid 1px #999;
+  padding-top: 45px;
+  padding-bottom: 55px;
+}
+#signin-form {
+  width: 400px;
+  min-height: 74%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}

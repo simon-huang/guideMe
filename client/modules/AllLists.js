@@ -3,11 +3,13 @@ import ListElement from './ListElement'
 
 
 export default ({ tours }) => (
-  <div>
+  <div className="container">
+    <div className="space"></div>
     <h1>Browse All Tours</h1>
-    <div className="space">
-    </div>
-    <div className="row">
+    <hr></hr>
+    <div className="space"></div>
+
+    <div className="row add-padding">
       { 
         tours != [] ? tours.map( listElement =>
         <ListElement listElement={listElement} key={listElement.id}/> 

@@ -15,6 +15,8 @@ export default class Logout extends React.Component {
 
   render() {
     return (
+      <div className="container">
+      <div id="signin-form">
       <div className="text-center logout">
         <h1>Are you sure you want to log out?</h1>
 
@@ -28,6 +30,8 @@ export default class Logout extends React.Component {
           onClick={this.handleLogout}>
             Log Out 
         </button>
+      </div>
+      </div>
       </div>
     );
   }

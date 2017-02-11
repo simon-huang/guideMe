@@ -8,7 +8,7 @@ export default class ListElement extends React.Component {
     }
 
     return (
-      <div className="col-md-4 listElement">
+      <div className="col-sm-6 col-md-4 listElement">
         <NavLink to={"/Tours/" + this.props.listElement.id}>
           <div>
             <div className="listImage center-cropped" style={divStyle}>
