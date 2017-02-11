@@ -5,13 +5,13 @@ export default props => {
   if (props.tour.review && props.auth === 'public') {
     return (
       <div>
-        <h2>{props.tour.name}</h2>
-        <span>{props.tour.location}</span>
-        <span>{props.tour.rating}</span>
+        <h3>{props.tour.name}</h3>
+        <h5>{props.tour.location}</h5>
+        <h5>{props.tour.rating}</h5>
 
-        <h3>User Review</h3>
-        <span>{props.tour.review.content}</span>
-        <span>User rating (not in schema yet)</span>
+        <h4>User Review</h4>
+        <h5>{props.tour.review.content}</h5>
+        <h5>User rating (not in schema yet)</h5>
       </div>
     );
   } 
@@ -19,9 +19,9 @@ export default props => {
   else if (props.auth === 'private' && props.whichTours === 'past') {
     return (
       <div>
-        <h2>{props.tour.name}</h2>
-        <span>{props.tour.location}</span>
-        <span>{props.tour.rating}</span>
+        <h3>{props.tour.name}</h3>
+        <h5>{props.tour.location}</h5>
+        <h5>{props.tour.rating}</h5>
         <button>
         Add Review
         </button>
@@ -32,9 +32,9 @@ export default props => {
   else if (props.auth === 'private' && props.whichTours === 'upcoming') {
     return (
       <div>
-        <h2>{props.tour.name}</h2>
-        <span>{props.tour.location}</span>
-        <span>{props.tour.rating}</span>
+        <h3>{props.tour.name}</h3>
+        <h5>{props.tour.location}</h5>
+        <h5>{props.tour.rating}</h5>
         <button>
         Delete
         </button>
@@ -44,9 +44,9 @@ export default props => {
   // if no review and public view then render without review
   return (
     <div>
-      <h2>{props.tour.name}</h2>
-      <span>{props.tour.location}</span>
-      <span>{props.tour.rating}</span>
+      <h3>{props.tour.name}</h3>
+      <h5>{props.tour.location}</h5>
+      <h5>{props.tour.rating}</h5>
     </div>
   );
 };

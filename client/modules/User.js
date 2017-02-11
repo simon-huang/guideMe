@@ -12,6 +12,7 @@ export default class User extends React.Component {
 
   render() {
     // user
+    console.log(this.props);
     if (!this.props.currentUser.isGuide) {
       if (this.props.user.username !== this.props.currentUser.username) {
         return (
@@ -23,7 +24,7 @@ export default class User extends React.Component {
             <UserInfo currentUser={this.props.currentUser}/>
 
             <h2>Tours Taken</h2>
-            <UserTimeline whichTours='past' auth='public' currentUser={this.props.currentUser}/>
+            <UserTimeline whichTours='past' auth='public' tours={this.props.currentUser.tours}/>
           </div>
         );
 
