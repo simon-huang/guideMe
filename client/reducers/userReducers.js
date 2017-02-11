@@ -15,6 +15,10 @@ export function authFormInputReducer(state = userDefaults, action) {
         ...state,
         password: action.password
       };
+    case "CLEAR_AUTH_INPUT":
+      return {
+
+      }
     default:
       return state;
   }
