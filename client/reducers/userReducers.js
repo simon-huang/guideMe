@@ -41,7 +41,7 @@ export function userAuthReducer(state = userDefaults, action) {
     case 'LOGOUT_ERROR':
       return {
         ...state,
-        loginError: action.err
+        logoutError: action.err
       };
     default:
       return state;
