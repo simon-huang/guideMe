@@ -6,6 +6,7 @@ export function getUserInfo(user) {
     axios.get('api/users/' + user.username).then(resp => {
       console.log('this is resp', resp);
       dispatch(assignUser(user));
+      dispatch(clearAuthInput());
       browserHistory.push('/users/' + user.username);
     })
   );
@@ -29,7 +30,7 @@ export function submitLogout() {
   return dispatch => (
     axios.get('/auth/logout').then((response) => {
       dispatch(logoutUser());
-      browserHistory.push('/');
+      browserHistory.push('/login');
     }).catch(err => {
       dispatch(logoutError());
     })
@@ -42,6 +43,7 @@ export function submitSignupUser(user) {
       axios.post('/auth/signup', user).then(resp => {
         if (resp.status === 201) {
           dispatch(assignUser(user));
+          dispatch(clearAuthInput());
           browserHistory.push('/users/' + user.username);
         }
       }).catch(err => {
@@ -72,11 +74,17 @@ export function logoutUser() {
   };
 }
 
-export function logoutError() {
+export function logoutError(err) {
   return {
     type: "LOGOUT_ERROR",
     err: err
   };
+}
+
+export function clearAuthInput() {
+  return {
+    type: "CLEAR_AUTH_INPUT",
+  }
 }
 
 export function setAuthInput(item, value) {

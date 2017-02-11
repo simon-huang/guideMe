@@ -15,6 +15,10 @@ export function authFormInputReducer(state = userDefaults, action) {
         ...state,
         password: action.password
       };
+    case "CLEAR_AUTH_INPUT":
+      return {
+
+      }
     default:
       return state;
   }
@@ -37,7 +41,7 @@ export function userAuthReducer(state = userDefaults, action) {
     case 'LOGOUT_ERROR':
       return {
         ...state,
-        loginError: action.err
+        logoutError: action.err
       };
     default:
       return state;

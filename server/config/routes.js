@@ -13,7 +13,7 @@ var checkUser = function(req, res, next) {
 var logOut = function(req, res) {
   console.log('inside logOut');
   req.session.destroy(function() {
-    res.send();
+    res.end();
   });
 };
 

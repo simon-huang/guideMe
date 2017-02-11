@@ -9,7 +9,7 @@ export default ({ tours }) => (
     </div>
     <div className="row">
       { 
-        tours ? tours.map( listElement =>
+        tours != [] ? tours.map( listElement =>
         <ListElement listElement={listElement} key={listElement.id}/> 
         ) : <h1>LOADING</h1> 
       }
