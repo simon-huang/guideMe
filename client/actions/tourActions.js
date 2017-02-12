@@ -43,6 +43,9 @@ export function setTourListWithData() {
 			body: {
 				query: {
 					match_all: {}
+				},
+				sort: {
+					"id": { order: "desc" }
 				}
 			}
 		}).then(resp => dispatch(setTourList(resp.hits.hits)))
