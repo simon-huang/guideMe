@@ -12,6 +12,13 @@ export default class User extends React.Component {
 
   render() {
     // user
+    if (!this.props.currentUser) {
+      return (
+        <h1>
+          {this.props.user.username}
+        </h1>
+      )
+    }
     console.log(this.props);
     if (!this.props.currentUser.isGuide) {
       if (this.props.user.username !== this.props.currentUser.username) {
