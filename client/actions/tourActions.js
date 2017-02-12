@@ -1,4 +1,5 @@
 import axios from 'axios';
+import client from '../esClient';
 
 export function createTour(tour) {
   return dispatch => (
@@ -30,13 +31,21 @@ export function createTourError(err) {
 export function setTourList(tours) {
   return {
     type: "SET_TOUR_LIST",
-    tours
+    tours: tours.map(item => item._source)
   };
 }
 
 export function setTourListWithData() {
   return (dispatch) => (
-    axios.get('/api/tours').then(resp => dispatch(setTourList(resp.data)))
+    client.search({
+			index: 'tours',
+			type: 'tour',
+			body: {
+				query: {
+					match_all: {}
+				}
+			}
+		}).then(resp => dispatch(setTourList(resp.hits.hits)))
   )
 }
 
