@@ -6,8 +6,8 @@ var path = require('path');
 
 export default function middleware(app, express) {
   app.use(partials());
-  app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../../public'));
   app.use(cookieParser('allyourcookiesarebelongtous'));
   app.use(session({

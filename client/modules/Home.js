@@ -1,5 +1,8 @@
 import React from 'react'
 import ListElement from './ListElement'
+import Search from './Search'
+import { handleItemChange } from '../helpers/changeHandlers'
+import { setSearchItem } from '../actions/searchActions'
 
 export default props =>  (
   <div>
@@ -12,9 +15,14 @@ export default props =>  (
     <div className="space" />
 
     <div className="row">
-      { props.tours.map((listElement) =>
-        <ListElement listElement={listElement} key={listElement.id}/>
-      )} 
+      <Search 
+        dispatch={props.dispatch}
+        searchItem='tour'
+        search={props.search}
+        name='title'
+        placeholder='Search by tour title...'
+        onChange={handleItemChange.bind(null, setSearchItem)}
+      />
     </div>
   </div>
 );
