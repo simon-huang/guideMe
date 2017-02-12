@@ -16,10 +16,11 @@ export default props =>  (
 
     <div className="row">
       <Search 
-        search='tour'
+        dispatch={props.dispatch}
+        searchItem='tour'
+        search={props.search}
         name='title'
         placeholder='Search by tour title...'
-        titleSearch={props.search.title}
         onChange={handleItemChange.bind(null, setSearchItem)}
       />
     </div>
