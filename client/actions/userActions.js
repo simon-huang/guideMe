@@ -30,7 +30,7 @@ export function submitLogout() {
   return dispatch => (
     axios.get('/auth/logout').then((response) => {
       dispatch(logoutUser());
-      browserHistory.push('/login');
+      browserHistory.push('/');
     }).catch(err => {
       dispatch(logoutError());
     })

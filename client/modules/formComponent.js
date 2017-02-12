@@ -10,7 +10,7 @@ export default props => (
     }
     <div className={ props.noLabel ? "col-sm-offset-2 col-sm-8" : "col-sm-8"}>
       <input 
-        type="text" 
+        type={ props.name === "password" ? "password" : "text"} 
         name={props.name}
         placeholder={ props.placeholder ? props.placeholder : '' }
         className="form-control"
