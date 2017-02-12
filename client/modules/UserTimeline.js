@@ -25,8 +25,8 @@ export default props => {
 
   return (
     <div>
-      {relevantTours.map(tour =>
-        <TourPreview whichTours={props.whichTours} auth={props.auth} tour={tour}/>
+      {relevantTours.map((tour, key) =>
+        <TourPreview key={key} whichTours={props.whichTours} auth={props.auth} tour={tour}/>
       )}
     </div>
   );

@@ -33,6 +33,7 @@ module.exports = {
 
       var queryStr = 'SELECT password FROM Users WHERE username="' + username +'"';
       db.query(queryStr, function(err, data) {
+        console.log('this is err and data', err, data);
         if (data.length > 0) {
           console.log('this is err and data', err, data);
           console.log('inside query', data[0].password);
