@@ -3,7 +3,7 @@ import NavLink from './NavLink'
 import Map from './map'
 
 export default ({ tours, params }) => {
-  if (!tours) {
+  if (tours.length === 0) {
     return (<div />);
   }
 

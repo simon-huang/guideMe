@@ -41,7 +41,8 @@ class App extends React.Component {
               dispatch: this.props.dispatch,
               inCreation: this.props.inCreation,
               tours: this.props.tours, 
-              user: this.props.user
+              user: this.props.user,
+              search: this.props.search
             }
           ) : (<h1>LOADING PLEASE WAIT</h1>)
         }

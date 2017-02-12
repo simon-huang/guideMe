@@ -1,31 +1,3 @@
-// import React from 'react'
-// import ListElement from './ListElement'
-
-// export default props => {
-//   if (props.user !== props.userWhoIsLoggedIn) {
-//     return (
-//       <div>
-//         <h1>
-//           {props.user.username}
-//         </h1>
-
-//         <h2>Recent Activity</h2>
-//       </div>
-//     );
-//   } else {
-//     return (
-//       <div>
-//         <h1>
-//           {props.user.username}
-//         </h1>
-
-//         <h2>Upcoming Tours</h2>
-
-//         <h2>Recent Activity</h2>
-//       </div>
-//     );
-//   }
-// }
 import React from 'react'
 import UserInfo from './UserInfo'
 import UserTimeline from './UserTimeline'
@@ -39,8 +11,6 @@ export default class User extends React.Component {
   }
 
   render() {
-    // user
-    console.log('user', this.props);
     if (!this.props.currentUser.isGuide) {
       if (this.props.user.username !== this.props.currentUser.username) {
         return (
