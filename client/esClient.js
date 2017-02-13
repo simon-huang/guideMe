@@ -8,9 +8,7 @@ var client = new elasticsearch.Client({
       'Content-Type': 'text/plain'
     }
   },
-  apiVersion: '2.3',
-  log: 'trace'
-
+  apiVersion: '2.3'
 });
 
 client.ping({

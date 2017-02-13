@@ -13,9 +13,6 @@ export function search(searchInfo) {
         }
       }
     }).then(resp => {
-      var hits = resp.hits.hits;
-      console.log('here are the greatest hits', hits);
-      
       dispatch(setSearchItem('results', hits.map(item => item._source)));
       dispatch(clearSearchItem());
     }).catch(err => {

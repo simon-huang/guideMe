@@ -1,11 +1,16 @@
 import React from 'react'
 import { submitLogout } from '../actions/userActions'
+import { isLoggedOut } from '../helpers/changeHandlers'
 
 export default class Logout extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    isLoggedOut(this.props.user);
   }
 
   handleLogout(e) {
