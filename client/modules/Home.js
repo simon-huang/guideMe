@@ -3,6 +3,12 @@ import ListElement from './ListElement'
 import Search from './Search'
 import { handleItemChange } from '../helpers/changeHandlers'
 import { setSearchItem } from '../actions/searchActions'
+    //   <div className="row add-padding">
+    //     { props.tours.map((listElement) =>
+    //       <ListElement listElement={listElement} key={listElement.id}/>
+    //     )} 
+    //   </div>
+
 
 export default props =>  (
   <div>
@@ -11,7 +17,12 @@ export default props =>  (
         <h1>Experience worth spreading</h1>
         <p>If you want special experience in San Francisco, find a local here!</p>
         
-        <Search 
+        
+      </div>
+    </div>
+
+    <div className="container">
+      <Search 
           className="row"
           dispatch={props.dispatch}
           searchItem='tour'
@@ -20,16 +31,7 @@ export default props =>  (
           placeholder='Search by tour title...'
           onChange={handleItemChange.bind(null, setSearchItem)}
         />
-      </div>
-    </div>
-
-    <div className="container add-padding">
-
-      <div className="row add-padding">
-        { props.tours.map((listElement) =>
-          <ListElement listElement={listElement} key={listElement.id}/>
-        )} 
-      </div>
-    </div>
+     </div>
+     <div className="space"></div>
   </div>
 );
