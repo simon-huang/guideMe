@@ -57,8 +57,8 @@ class App extends React.Component {
         </div>
 
         <footer className="container-fluid bg-4 text-center">
-          <h5>Refactored by Aeron Ming, Simon Huang, Ai Shi</h5> 
-          <p>This is a group project at Hack Reactor</p>
+          <h5>Refactored by Aaron Min, Simon Huang, Ai Shi</h5> 
+          <p>Artisanal Aioli Legacy Project</p>
         </footer>
       </div>
     ) : (<div />)
