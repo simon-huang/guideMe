@@ -5,11 +5,11 @@ export default props => {
   if (props.tours.length === 0) {
     return (
       <div >
-        <h2>None</h2>
+        <p>None</p>
       </div>
     );
   } 
-  
+  console.log('length wasnt 0 ', props.tours, props.tours.length);
   var relevantTours;
   if (props.whichTours === 'upcoming') {
     relevantTours = props.tours.filter(tour =>

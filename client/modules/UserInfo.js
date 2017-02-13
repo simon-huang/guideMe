@@ -2,35 +2,35 @@ import React from 'react';
 
 export default props => {
   // not Guide
-  if (!props.currentUser.isGuide) {
-    if (props.currentUser.image) {
+  if (!props.currentUserPage.isGuide) {
+    if (props.currentUserPage.image) {
       return (
         <div>
-          <img src={props.currentUser.image} />
-          <p>{props.currentUser.bio}</p>
+          <img src={props.currentUserPage.image} />
+          <p>{props.currentUserPage.bio}</p>
         </div>
       );
     }
     return (
       <div>
-        <p>{props.currentUser.bio}</p>
+        <p>{props.currentUserPage.bio}</p>
       </div>
     );
   }
   // Guide
   else {
-    if (props.currentUser.image) {
+    if (props.currentUserPage.image) {
       return (
         <div>
-          <img src={props.currentUser.image} />
-          <p>{props.currentUser.bio}</p>
+          <img src={props.currentUserPage.image} />
+          <p>{props.currentUserPage.bio}</p>
           <span>Rating:</span>
         </div>
       );
     }
     return (
       <div>
-        <p>{props.currentUser.bio}</p>
+        <p>{props.currentUserPage.bio}</p>
         <span>Rating:</span>
       </div>
     );
