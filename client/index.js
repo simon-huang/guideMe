@@ -16,6 +16,7 @@ import SignUp from './modules/SignUp'
 import Tour from './modules/Tour'
 import User from './modules/User'
 
+        // <Route path="/SearchResults" component={SearchResults} />
 var Root = props => (
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -24,7 +25,6 @@ var Root = props => (
         <Route path="/Tours/:TourID" component={Tour}/>
         <Route path="/about" component={About}/>
         <Route path="/AllLists" component={AllLists}/>
-        <Route path="/SearchResults" component={SearchResults} />
         <Route path="/LogIn" component={LogIn}/>
         <Route path="/Users/:username" component={User}>
           <Route path='CreateReview' component={ReviewCreate}/>

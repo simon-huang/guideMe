@@ -7,8 +7,7 @@ var client = new elasticsearch.Client({
     headers: {
       'Content-Type': 'text/plain'
     }
-  },
-  apiVersion: "5.x"
+  }
 });
 
 client.ping({
