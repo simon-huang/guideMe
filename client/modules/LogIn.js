@@ -3,7 +3,7 @@ import NavLink from './NavLink'
 import FormComponent from './formComponent'
 import SubmitButton from './SubmitButton'
 import { setAuthInput, submitLoginUser } from '../actions/userActions'
-import { handleItemChange } from '../helpers/changeHandlers'
+import { handleItemChange, isLoggedIn } from '../helpers/changeHandlers'
 
 export default class LogIn extends React.Component {
   constructor(props) {
@@ -11,6 +11,10 @@ export default class LogIn extends React.Component {
 
     this.handleItemChange = handleItemChange.bind(null, setAuthInput);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    isLoggedIn(this.props.user);
   }
 
   handleSubmit(event) {

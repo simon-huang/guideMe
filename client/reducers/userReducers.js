@@ -1,6 +1,6 @@
 var userDefaults = {
   username: '',
-  password: ''
+  findSessionCalled: false
 };
 
 export function authFormInputReducer(state = userDefaults, action) {
@@ -16,9 +16,7 @@ export function authFormInputReducer(state = userDefaults, action) {
         password: action.password
       };
     case "CLEAR_AUTH_INPUT":
-      return {
-
-      }
+      return userDefaults;
     default:
       return state;
   }
@@ -26,10 +24,15 @@ export function authFormInputReducer(state = userDefaults, action) {
 
 export function userAuthReducer(state = userDefaults, action) {
   switch(action.type) {
+    case "FIND_SESSION_CALLED":
+      return {
+        ...state,
+        findSessionCalled: action.payload
+      }
     case "LOGIN_SUCCESSFUL":
       return {
         ...state,
-        ...action.user
+        username: action.user.username
       };
     case 'LOGIN_ERROR':
       return {
@@ -37,7 +40,7 @@ export function userAuthReducer(state = userDefaults, action) {
         loginError: action.err
       };
     case 'LOGOUT_SUCCESSFUL':
-      return null;
+      return userDefaults;
     case 'LOGOUT_ERROR':
       return {
         ...state,

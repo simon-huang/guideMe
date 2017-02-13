@@ -4,6 +4,7 @@ import path from 'path';
 var checkUser = function(req, res, next) {
   if (!req.session) {
     res.send('Not logged in');
+
   } else {
     next();
   }
@@ -22,11 +23,16 @@ export default function routes(app, express) {
   app.post('/api/tours', checkUser, controller.tours.post);
   
   app.get('/api/users/:username', controller.users.getUserForPage);
+  app.get('/api/user/session', (req, res, next) => {
+    res.end(req.session.user);
+  });
+
   app.get('/auth/logout', logOut);
   app.post('/auth/login', controller.users.getUserForLogin);
   app.post('/auth/signup', controller.users.post);
   
   app.use('*', (req, res, next) => {
+    console.log(req.session, req.session.user);
     res.sendFile(path.join(__dirname, '../../public/index.html'));
   });
 }

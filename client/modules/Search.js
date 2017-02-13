@@ -17,7 +17,8 @@ export default props => {
       // <h3 className="text-center">Search for a {props.searchItem} here</h3>
 
   return (
-    <div>
+    <div className='row'>
+      <h3 className="text-center">Search for a {props.searchItem} here</h3>
       <form onSubmit={handleSubmit}>
         <FormComponent 
           name={props.name}

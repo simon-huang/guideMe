@@ -1,38 +1,20 @@
-import elasticsearch from 'elasticsearch';
-import axios from 'axios';
-
-var client = new elasticsearch.Client({
-  host: 'http://localhost:9200',
-  apiVersion: '2.3',
-  log: 'trace'
-
-});
-
-client.ping({
-  requestTimeout: 30000,
-}, err => {
-  err ? console.log('cluster is down') : console.log('cluster is fine');
-});
+import client from '../esClient';
 
 export function search(searchInfo) {
   return dispatch => (
-    axios.post('http://localhost:9200/tours/_search?', 
-      {
+    client.search({
+      index: 'tours',
+      type: 'tour',
+      body: {
         query: {
           match_phrase_prefix: {
             ...searchInfo
           }
         }
-      },
-      {
-        headers: {
-          'Content-Type': 'text/plain'
-        }
       }
-    ).then(resp => {
-      var hits = resp.data.hits.hits;
-      console.log('here are the greatest hits', hits);
-      
+    }).then(resp => {
+      var hits = resp.hits.hits;
+
       dispatch(setSearchItem('results', hits.map(item => item._source)));
       dispatch(clearSearchItem());
     }).catch(err => {
