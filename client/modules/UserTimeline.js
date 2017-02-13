@@ -24,7 +24,8 @@ export default props => {
   }
 
   return (
-    <div>
+    <div className="row">
+      
       {relevantTours.map((tour, key) =>
         <TourPreview key={key} whichTours={props.whichTours} auth={props.auth} tour={tour}/>
       )}
