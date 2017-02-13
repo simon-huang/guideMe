@@ -12,7 +12,7 @@ var inCreationDefaults = {
   image: '',
   price: '',
   time: '',
-  location: ''
+  location: '',
   duration: '',
   description: ''
 };
