@@ -18,7 +18,7 @@ module.exports = {
     },
     post: function(params, callback) {
       // create a tour for a userid for a given username
-      console.log(params);
+      console.log('params in tour module post', params);
       var queryStr = 'INSERT INTO Tours SET ?'
       db.query(queryStr, params, function(err, results) {
         callback(err, results);
