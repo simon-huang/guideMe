@@ -32,6 +32,7 @@ export default props => {
         </form>
     
       <div className="add-padding">
+      <div className="row add-padding">
         { 
           props.search.searchResults.length > 0 ? 
             props.search.searchResults.map(item => (
@@ -39,6 +40,7 @@ export default props => {
             )) : 
             ''
         }
+      </div>
       </div>
     </div>
   );
