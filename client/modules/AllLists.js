@@ -83,25 +83,6 @@ export default ({ tours }) => (
         ) : <h1>LOADING</h1> 
       }
     </div>
-    <User 
-    currentUser={{username:'Simon', 
-    bio: 'I am Simon. Blah Blah Blah. What a bio.', 
-    isGuide: false, 
-    tours: [
-  {
-    "id": 1,
-    "image": "https://s-media-cache-ak0.pinimg.com/originals/58/3a/dd/583add86c194fa2de17ce38b88644435.jpg",
-    "name": "Find a perfect girl with me in club",
-    "price": "500",
-    'date': '2017-01-23',
-    "rating": 4.9,
-    "numReviews": 120,
-    "description": "Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
-    "duration": "2 Days",
-    "id_Guide": 2,
-    'location': 'San Francisco'
-  }
-  ]}} user={{username:'NotSimon'}} />
   </div>
 );
 
