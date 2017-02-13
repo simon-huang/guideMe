@@ -11,9 +11,9 @@ export default props => {
     props.dispatch(search({ title: props.search.title }));
   };
 
-  var style = {
-    "padding-top": "3em"
-  };
+  // var style = {
+  //   "padding-top": "3em"
+  // };
       // <h3 className="text-center">Search for a {props.searchItem} here</h3>
 
         // <h3>Search for a {props.searchItem} here</h3>
@@ -31,7 +31,7 @@ export default props => {
           />
         </form>
     
-      <div style={style}>
+      <div className="add-padding">
         { 
           props.search.searchResults.length > 0 ? 
             props.search.searchResults.map(item => (

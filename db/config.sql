@@ -24,7 +24,17 @@ CREATE TABLE `Users` (
   `password` VARCHAR(150) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
-
+-- CREATE TABLE `Users` (
+--   `id` INTEGER NOT NULL AUTO_INCREMENT,
+--   `username` VARCHAR(25) NULL DEFAULT NULL,
+--   `password` VARCHAR(150) NULL DEFAULT NULL,
+--   `isGuide` BOOLEAN(1) NULL DEFAULT 0,
+--   `image` VARCHAR(200) NULL DEFAULT NULL,
+--   `tel` VARCHAR(10) NULL DEFAULT NULL,
+--   `email` VARCHAR(20) NULL DEFAULT NULL,
+--   `bio` MEDIUMTEXT NULL DEFAULT NULL,
+--   PRIMARY KEY (`id`)
+-- );
 -- ---
 -- Table 'Tours'
 -- 
