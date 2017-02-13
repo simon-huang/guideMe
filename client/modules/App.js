@@ -26,7 +26,14 @@ class App extends React.Component {
         <ul role="nav" className="nav nav-pills">
           <li className="navb"><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
           <li className="navb"><NavLink to="/AllLists">All Tours</NavLink></li>
-          <li className="navb"><NavLink to="/Create">Create Tour</NavLink></li>
+          {
+            this.props.user.username === '' ? '' : <li className="navb"><NavLink to="/Create">Create Tour</NavLink></li>
+          }
+          {
+            this.props.user.username === '' ? '' : 
+            (<li className="navb"><NavLink to={"/Users" + '/'+ this.props.user.username}>My Profile</NavLink></li>)
+          }
+
 
           {
             this.props.user.username === '' ? 

@@ -9,7 +9,7 @@ export function toursReducer(state = [], action) {
 
 var inCreationDefaults = {
   title: '',
-  id_Guide: '',
+  id_Guide: 1,
   image: '',
   price: '',
   location: '',
@@ -23,11 +23,11 @@ export function createTourReducer(state = inCreationDefaults, action) {
       return {
         ...inCreationDefaults
       };
-    case "CREATE_TOUR_ERROR":
-      return {
-        ...state,
-        error: action.err
-      };
+    // case "CREATE_TOUR_ERROR":
+    //   return {
+    //     ...state,
+    //     error: action.err
+    //   };
     case "SET_TOUR_TITLE":
       return {
         ...state,
