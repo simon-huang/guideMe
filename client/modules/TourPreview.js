@@ -2,16 +2,18 @@ import React from 'react';
 
 export default props => {
   // if public and there's a review then render with review
+  console.log('this is a tour preview ', props);
   if (props.tour.review && props.auth === 'public') {
     return (
       <div>
-        <h3>{props.tour.name}</h3>
-        <h5>{props.tour.location}</h5>
-        <h5>{props.tour.rating}</h5>
+        <strong>{props.tour.title}</strong>
+        <div>Date: {new Date(props.tour.date).toLocaleDateString()}</div>
+        <div>Location: {props.tour.location}</div>
+        <div>Rating: {props.tour.rating}</div>
 
         <h4>User Review</h4>
-        <h5>{props.tour.review.content}</h5>
-        <h5>User rating (not in schema yet)</h5>
+        <div>{props.tour.review.content}</div>
+        <div>User rating (not in schema yet)</div>
       </div>
     );
   } 
@@ -19,9 +21,10 @@ export default props => {
   else if (props.auth === 'private' && props.whichTours === 'past') {
     return (
       <div>
-        <h3>{props.tour.name}</h3>
-        <h5>{props.tour.location}</h5>
-        <h5>{props.tour.rating}</h5>
+        <strong>{props.tour.title}</strong>
+        <div>Date: {new Date(props.tour.date).toLocaleDateString()}</div>
+        <div>Location: {props.tour.location}</div>
+        <div>Rating: {props.tour.rating}</div>
         <button>
         Add Review
         </button>
@@ -32,9 +35,10 @@ export default props => {
   else if (props.auth === 'private' && props.whichTours === 'upcoming') {
     return (
       <div>
-        <h3>{props.tour.name}</h3>
-        <h5>{props.tour.location}</h5>
-        <h5>{props.tour.rating}</h5>
+        <strong>{props.tour.title}</strong>
+        <div>Date: {new Date(props.tour.date).toLocaleDateString()}</div>
+        <div>Location: {props.tour.location}</div>
+        <div>Rating: {props.tour.rating}</div>
         <button>
         Delete
         </button>
@@ -44,9 +48,10 @@ export default props => {
   // if no review and public view then render without review
   return (
     <div>
-      <h3>{props.tour.name}</h3>
-      <h5>{props.tour.location}</h5>
-      <h5>{props.tour.rating}</h5>
+      <strong>{props.tour.title}</strong>
+      <div>Date: {new Date(props.tour.date).toLocaleDateString()}</div>
+      <div>Location: {props.tour.location}</div>
+      <div>Rating: {props.tour.rating}</div>
     </div>
   );
 };
