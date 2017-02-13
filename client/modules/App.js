@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import store from '../store'
 import NavLink from './NavLink'
 import { setTourListWithData } from '../actions/tourActions'
+import { findSession } from '../actions/userActions'
 
 class App extends React.Component {
   constructor(props) {
@@ -12,8 +13,13 @@ class App extends React.Component {
       store.dispatch(setTourListWithData());
   }
 
+  componentWillReceiveProps() {
+    if (!this.props.user.findSessionCalled)
+      this.props.dispatch(findSession());
+  }
+
   render() {
-    return (
+    return this.props.user.findSessionCalled ? ( 
       <div>
         <ul role="nav" className="nav nav-pills">
           <li className="navb"><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
@@ -44,7 +50,7 @@ class App extends React.Component {
           ) : (<h1>LOADING PLEASE WAIT</h1>)
         }
       </div>
-    )
+    ) : (<div />)
   }
 }
 

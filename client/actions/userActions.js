@@ -1,10 +1,29 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 
+export function findSession() {
+  return dispatch => (
+    axios.get('/api/user/session')
+      .then(resp => {
+        console.log('hi this is session', resp);
+        dispatch(findSessionCalled());
+
+        if (resp.data.length > 0) 
+          dispatch(assignUser(resp.data[0]));
+      })
+  );
+}
+
+export function findSessionCalled() {
+  return {
+    type: 'FIND_SESSION_CALLED',
+    payload: true
+  };
+}
+
 export function getUserInfo(user) {
   return dispatch => (
-    axios.get('api/users/' + user.username).then(resp => {
-      console.log('this is resp', resp);
+    axios.get('/api/users/' + user.username).then(resp => {
       dispatch(assignUser(user));
       dispatch(clearAuthInput());
       browserHistory.push('/users/' + user.username);
