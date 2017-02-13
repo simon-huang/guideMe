@@ -23,15 +23,13 @@ export default props => {
       return (
         <div>
           <img src={props.currentUserPage.image} />
-          <p>{props.currentUserPage.bio}</p>
-          <span>Rating:</span>
+          <p><strong>Bio: </strong>{props.currentUserPage.bio}</p>
         </div>
       );
     }
     return (
       <div>
-        <p>{props.currentUserPage.bio}</p>
-        <span>Rating:</span>
+        <p><strong>Bio: </strong>{props.currentUserPage.bio}</p>
       </div>
     );
   }
