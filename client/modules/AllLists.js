@@ -10,6 +10,7 @@ import User from './User'
 //     "price": "500",
 //     "rating": 4.9,
 //     "numReviews": 120,
+//     "location": ""
 //     "description": "Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
 //     "duration": "2 Days",
 //     "id_Guide": 2

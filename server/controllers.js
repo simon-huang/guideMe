@@ -20,9 +20,10 @@ module.exports = {
       });
     },
     post: function(req, res) {
+      console.log('post req body', req.body);
       models.tours.post(req.body, function(err, results) {
         if (err) {
-          console.error(err);
+          console.error('err in post', err);
           res.sendStatus(501);
         }
         res.sendStatus(201);

@@ -15,6 +15,7 @@ import ReviewCreate from './modules/ReviewCreate'
 import SignUp from './modules/SignUp'
 import Tour from './modules/Tour'
 import User from './modules/User'
+        // <Route path="/Confirmation" component={Confirmation} />
 
         // <Route path="/SearchResults" component={SearchResults} />
 var Root = props => (
@@ -26,8 +27,9 @@ var Root = props => (
         <Route path="/about" component={About}/>
         <Route path="/AllLists" component={AllLists}/>
         <Route path="/LogIn" component={LogIn}/>
-        <Route path="/Users/:username" component={User}>
-          <Route path='CreateReview' component={ReviewCreate}/>
+        <Route path="/Users/:username" component={User} />
+          <Route path='CreateReview' component={ReviewCreate}>
+        }
         </Route>
         <Route path="/SignUp" component={SignUp}/>
         <Route path="/Create" component={Create}/>

@@ -9,9 +9,9 @@ export function toursReducer(state = [], action) {
 
 var inCreationDefaults = {
   title: '',
+  id_Guide: '',
   image: '',
   price: '',
-  time: '',
   location: '',
   duration: '',
   description: ''
@@ -38,6 +38,11 @@ export function createTourReducer(state = inCreationDefaults, action) {
         ...state,
         image: action.image
       };
+    case "SET_TOUR_GUIDE":
+      return {
+        ...state,
+        id_Guide: action.id_Guide
+      };
     case "SET_TOUR_PRICE":
       return {
         ...state,
@@ -51,7 +56,7 @@ export function createTourReducer(state = inCreationDefaults, action) {
     case "SET_TOUR_LOCATION":
       return {
         ...state,
-        time: action.location
+        location: action.location
       };
     case "SET_TOUR_DESCRIPTION":
       return {

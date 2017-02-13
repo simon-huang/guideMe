@@ -1,6 +1,6 @@
 import React from 'react'
 import NavLink from './NavLink'
-import Map from './map'
+import Tour from './Tour'
 
 export default ({ tours, params }) => {
   if (tours.length === 0) {
@@ -13,10 +13,6 @@ export default ({ tours, params }) => {
     backgroundImage: 'url(' + thisTour.image + ')'
   }
 
-// this is dummy data to test google map
-  // thisTour.location = 'Golden Gate Bridge, San Francisco, CA 94129';
-  thisTour.tourGuide = 'Mark';
-  thisTour.rating = thisTour.rating.toFixed(1);
   return (
     // Button doesn't do anything aside from take you to login, make sure to refactor
     <div className="container add-padding">
@@ -35,8 +31,7 @@ export default ({ tours, params }) => {
           <tbody>
               <tr><td><h5>Tour guide: </h5></td><td><p>{thisTour.tourGuide}</p></td></tr>
               <tr><td><h5>Price: </h5></td><td><p>{thisTour.price}</p></td></tr>
-              <tr><td><h5>Time: </h5></td><td><p>{thisTour.duration}</p></td></tr>
-              <tr><td><h5>Rating: </h5></td><td><p>{thisTour.rating}</p></td></tr>
+              <tr><td><h5>Time: </h5></td><td><p>{thisTour.time}</p></td></tr>
               <tr><td><h5>Location: </h5></td><td><p>{thisTour.location}</p></td></tr>
           </tbody>
         

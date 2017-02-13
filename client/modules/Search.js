@@ -16,18 +16,21 @@ export default props => {
   };
       // <h3 className="text-center">Search for a {props.searchItem} here</h3>
 
+        // <h3>Search for a {props.searchItem} here</h3>
   return (
     <div className='row'>
-      <h3 className="text-center">Search for a {props.searchItem} here</h3>
-      <form onSubmit={handleSubmit}>
-        <FormComponent 
-          name={props.name}
-          value={props.search.title}
-          onChange={props.onChange}
-          noLabel={true}
-          placeholder={props.placeholder}
-        />
-      </form>
+
+      <div className="space"></div>
+        <form onSubmit={handleSubmit}>
+          <FormComponent 
+            name={props.name}
+            value={props.search.title}
+            onChange={props.onChange}
+            noLabel={true}
+            placeholder={props.placeholder}
+          />
+        </form>
+    
       <div style={style}>
         { 
           props.search.searchResults.length > 0 ? 
