@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 
 export function findSession() {
   return dispatch => (
-    axios.get('/api/users/session')
+    axios.get('/api/user/session')
       .then(resp => {
         console.log('hi this is session', resp);
         dispatch(findSessionCalled());

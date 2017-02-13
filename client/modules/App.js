@@ -11,9 +11,11 @@ class App extends React.Component {
 
     if (this.props.tours.length === 0)
       store.dispatch(setTourListWithData());
+  }
 
+  componentWillReceiveProps() {
     if (!this.props.user.findSessionCalled)
-      props.dispatch(findSession());
+      this.props.dispatch(findSession());
   }
 
   render() {
