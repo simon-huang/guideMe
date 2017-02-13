@@ -116,7 +116,7 @@ INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`
 "Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
 '2 Days',
 '335 Powell St, San Francisco, CA 94102',
-2);
+'Mark');
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`location`,`id_Guide`) VALUES
 ('http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/istock_000001168352_small.jpg',
@@ -127,7 +127,7 @@ INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`
 "Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
 '2 Days',
 'Golden Gate Bridge, San Francisco, CA 94129',
-2);
+'Mark');
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`location`,`id_Guide`) VALUES
 ('https://waterworldswim.com/wp-content/uploads/2014/08/maggietidmore11.jpg',
@@ -138,7 +138,7 @@ INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`
 "Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
 '2 Days',
 'Golden Gate Bridge, San Francisco, CA 94129',
-2);
+'Mark');
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`location`,`id_Guide`) VALUES
 ('https://media-cdn.tripadvisor.com/media/photo-s/07/a1/76/6a/culture-and-cocktails.jpg',
@@ -149,7 +149,7 @@ INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`
 "Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
 '2 Days',
 '280 Geary St, San Francisco, CA 94108',
-2);
+'Mark');
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`,`location`,`id_Guide`) VALUES
 ('http://hotinjuba.com/wp-content/uploads/2016/09/woman-smoking-weed.jpg',
@@ -160,7 +160,7 @@ INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`
 "Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
 '2 Days',
 '899 Market St, San Francisco, CA 94103',
-2);
+'Mark');
 
 INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`,`duration`, `location` ,`id_Guide`) VALUES
 ('https://a0.muscache.com/im/pictures/89957997-2e3f-40cb-8f0b-dcbd5626bd9c.jpg?aki_policy=large',
@@ -171,4 +171,4 @@ INSERT INTO `Tours` (`image`,`title`,`price`,`rating`,`numReviews`,`description`
 "Make sure you've showered, shaved, and cleaned off. You want to give the best first impression you can when meeting people, and that starts, for better or worse, with your physical appearance. Luckily, looking good does not actually take a lot of work clean off, brush your teeth, and wear clean, crisp clothes.",
 '2 Days',
 '3301 Lyon St, San Francisco, CA 94123',
-2);
+'Mark');
