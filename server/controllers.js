@@ -37,6 +37,7 @@ module.exports = {
         if (err) {
           console.error(err);
         }
+      delete result[0].password;
       res.json(result);
       });
     },

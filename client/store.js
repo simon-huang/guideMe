@@ -4,6 +4,7 @@ import promise from 'redux-promise-middleware';
 import logger from 'redux-logger';
 import { createTourReducer, toursReducer } from './reducers/toursReducer';
 import { authFormInputReducer, userAuthReducer } from './reducers/userReducers';
+import { currentUserPageReducer } from './reducers/currentUserPageReducer';
 import { searchReducer } from './reducers/searchReducers';
 
 const rootReducer = 
@@ -12,6 +13,7 @@ const rootReducer =
     inCreation: createTourReducer,
     authFormInput: authFormInputReducer, 
     user: userAuthReducer,
+    currentUserPage: currentUserPageReducer,
     search: searchReducer,
   });
 
