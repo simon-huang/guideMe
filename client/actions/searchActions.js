@@ -13,6 +13,8 @@ export function search(searchInfo) {
         }
       }
     }).then(resp => {
+      var hits = resp.hits.hits;
+
       dispatch(setSearchItem('results', hits.map(item => item._source)));
       dispatch(clearSearchItem());
     }).catch(err => {
