@@ -1,6 +1,10 @@
 var userDefaults = {
   username: '',
-  lookedForCurrentUserPage: false
+  lookedForCurrentUserPage: false,
+  isGuide: false,
+  image: '',
+  bio: '',
+  tours: []
 };
 
 export function currentUserPageReducer(state = userDefaults, action) {
@@ -9,7 +13,6 @@ export function currentUserPageReducer(state = userDefaults, action) {
       return {
         ...action.currentUserPage,
         lookedForCurrentUserPage: true,
-        isGuide: true,
         image: '',
         bio: 'This is my bio. Bios are great. Tours are great too.',
         tours: [

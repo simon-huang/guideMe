@@ -24,9 +24,9 @@ module.exports = {
       models.tours.post(req.body, function(err, results) {
         if (err) {
           console.error('err in post', err);
-          res.sendStatus(501);
+          res.status(501).end();
         }
-        res.sendStatus(201);
+        res.status(201).end();
       });
     }
   },

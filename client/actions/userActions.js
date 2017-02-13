@@ -26,7 +26,7 @@ export function getUserInfo(user) {
     axios.get('/api/users/' + user.username).then(resp => {
       dispatch(assignUser(user));
       dispatch(clearAuthInput());
-      browserHistory.push('/users/' + user.username);
+      browserHistory.push('/Users/' + user.username);
     })
   );
 }
@@ -63,7 +63,7 @@ export function submitSignupUser(user) {
         if (resp.status === 201) {
           dispatch(assignUser(user));
           dispatch(clearAuthInput());
-          browserHistory.push('/users/' + user.username);
+          browserHistory.push('/Users/' + user.username);
         }
       }).catch(err => {
         dispatch(assignLoginError());
