@@ -37,9 +37,12 @@ module.exports = {
       models.users.get(req.params.username, function(err, result) {
         if (err) {
           console.error(err);
+          res.end();
         }
-      delete result[0].password;
-      res.json(result);
+        else if (result[0]) {
+          delete result[0].password;
+          res.json(result);
+        }  
       });
     },
     getUserForLogin: function(req, res) {
