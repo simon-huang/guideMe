@@ -1,5 +1,6 @@
 import React from 'react'
 import NavLink from './NavLink'
+import Map from './map'
 
 export default ({ tours, params }) => {
   if (tours.length === 0) {
@@ -12,27 +13,59 @@ export default ({ tours, params }) => {
     backgroundImage: 'url(' + thisTour.image + ')'
   }
 
+// this is dummy data to test google map
+  thisTour.location = 'Golden Gate Bridge, San Francisco, CA 94129';
+
   return (
     // Button doesn't do anything aside from take you to login, make sure to refactor
-    <div className="container text-center ">
+    <div className="container add-padding">
 
-      <div className="space" /> 
-      <h1 className="text-center">{thisTour.title}</h1>
-      <div className="space" />
+        <h1>{thisTour.title}</h1>
+        <div className="space"></div>
+        <div className="space"></div>
 
-      <div className="center-cropped-tour col-md-6" style={divStyle} />
-      <div className="space" />
+    <div className="row">
 
-      <h3>Tour guide: {thisTour.tourGuide}</h3>
-      <h3>Price: {thisTour.price}</h3>
-      <h3>Duration: {thisTour.duration}</h3>
-      <p>{thisTour.description}</p>
+      <div className="col-12 col-md-8">
+        <div className="center-cropped-tour" style={divStyle}> </div>
+      </div>
+      <div className="col-12 col-md-4">
+        <table className="table">
+          <tbody>
+              <tr><td><h5>Tour guide: </h5></td><td><p>{thisTour.tourGuide}</p></td></tr>
+              <tr><td><h5>Price: </h5></td><td><p>{thisTour.price}</p></td></tr>
+              <tr><td><h5>Time: </h5></td><td><p>{thisTour.time}</p></td></tr>
+              <tr><td><h5>Location: </h5></td><td><p>{thisTour.location}</p></td></tr>
+          </tbody>
+        
+        </table>
 
-      <NavLink to="/Login">
-        <button type="button" className="btn btn-primary btn-lg btn-block">
-          Book this experience
-        </button>
-      </NavLink>
+        <NavLink to="/Login">
+          <button type="button" className="btn btn-primary">
+            Book this experience
+          </button>
+        </NavLink>
+      </div>
+    </div>
+
+    <div className="row add-padding">
+      <div className="col-md-8">
+        <h5>About this tour</h5>
+        <p>{thisTour.description}</p>
+        <div className="space"></div>
+        <hr></hr>
+      </div>
+
+      <div className="col-md-8">
+        <h5>About the guide</h5>
+        <p>{thisTour.tourGuide}</p>
+      </div>
+
+      <div className="col-md-8">
+        <h5>About the meet place</h5>
+        <Map location={thisTour.location}/>
+      </div>
+    </div>
     </div>
   );
 }

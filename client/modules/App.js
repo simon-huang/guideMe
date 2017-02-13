@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import store from '../store'
 import NavLink from './NavLink'
+import User from './User'
 import { setTourListWithData } from '../actions/tourActions'
 import { findSession } from '../actions/userActions'
 
@@ -21,6 +22,7 @@ class App extends React.Component {
   render() {
     return this.props.user.findSessionCalled ? ( 
       <div>
+        <div className="container">
         <ul role="nav" className="nav nav-pills">
           <li className="navb"><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
           <li className="navb"><NavLink to="/AllLists">All Tours</NavLink></li>
@@ -36,6 +38,8 @@ class App extends React.Component {
               (<li className="navbar-right navb"><NavLink to="/Logout">Log out</NavLink></li>) 
           }
         </ul>
+        </div>
+        <div className="main-content-container">
         { 
           this.props.tours ? 
           React.cloneElement(this.props.children, 
@@ -50,6 +54,12 @@ class App extends React.Component {
             }
           ) : (<h1>LOADING PLEASE WAIT</h1>)
         }
+        </div>
+
+        <footer className="container-fluid bg-4 text-center">
+          <h5>Refactored by Aeron Ming, Simon Huang, Ai Shi</h5> 
+          <p>This is a group project at Hack Reactor</p>
+        </footer>
       </div>
     ) : (<div />)
   }

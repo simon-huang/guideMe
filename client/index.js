@@ -16,6 +16,7 @@ import SignUp from './modules/SignUp'
 import Tour from './modules/Tour'
 import User from './modules/User'
 
+        // <Route path="/SearchResults" component={SearchResults} />
 var Root = props => (
   <Provider store={store}>
     <Router history={browserHistory}>

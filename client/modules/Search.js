@@ -14,6 +14,7 @@ export default props => {
   var style = {
     "padding-top": "3em"
   };
+      // <h3 className="text-center">Search for a {props.searchItem} here</h3>
 
   return (
     <div className='row'>

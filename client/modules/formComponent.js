@@ -2,6 +2,7 @@ import React from 'react';
 
 export default props => (
   <div className="form-group">
+    <div className="space"></div>
     {
       props.noLabel ? '' : 
         <label className="col-sm-2 control-label">

@@ -6,23 +6,30 @@ import { setSearchItem } from '../actions/searchActions'
 
 export default props =>  (
   <div>
-    <div className="jumbotron">
+    <div className="jumbotron vertical-center">
       <div className="container jumboText">
         <h1>Experience worth spreading</h1>
         <p>If you want special experience in San Francisco, find a local here!</p>
+        
+        <Search 
+          className="row"
+          dispatch={props.dispatch}
+          searchItem='tour'
+          search={props.search}
+          name='title'
+          placeholder='Search by tour title...'
+          onChange={handleItemChange.bind(null, setSearchItem)}
+        />
       </div>
     </div>
-    <div className="space" />
 
-    <div className="row">
-      <Search 
-        dispatch={props.dispatch}
-        searchItem='tour'
-        search={props.search}
-        name='title'
-        placeholder='Search by tour title...'
-        onChange={handleItemChange.bind(null, setSearchItem)}
-      />
+    <div className="container add-padding">
+
+      <div className="row add-padding">
+        { props.tours.map((listElement) =>
+          <ListElement listElement={listElement} key={listElement.id}/>
+        )} 
+      </div>
     </div>
   </div>
 );
