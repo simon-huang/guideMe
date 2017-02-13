@@ -13,15 +13,24 @@ export default ({ tours, params }) => {
     backgroundImage: 'url(' + thisTour.image + ')'
   }
 
-// this is dummy data to test google map
-  // thisTour.location = 'Golden Gate Bridge, San Francisco, CA 94129';
+  var handleBooking = () => {
+    // var printContents = document.getElementByClassName("printableArea").innerHTML;
+    // var originalContents = document.body.innerHTML;
+    // document.body.innerHTML = printContents;
+    // window.print();
+    // document.body.innerHTML = originalContents;
+    console.log('this function will send email to guide');
+  }
+
   thisTour.tourGuide = 'Mark';
-  thisTour.rating = thisTour.rating.toFixed(1);
+  // thisTour.rating = thisTour.rating.toFixed(1);
+
+
   return (
     // Button doesn't do anything aside from take you to login, make sure to refactor
     <div className="container add-padding">
 
-        <h1>{thisTour.title}</h1>
+        <h1 className="printableArea">{thisTour.title}</h1>
         <div className="space"></div>
         <div className="space"></div>
 
@@ -30,7 +39,7 @@ export default ({ tours, params }) => {
       <div className="col-12 col-md-8">
         <div className="center-cropped-tour" style={divStyle}> </div>
       </div>
-      <div className="col-12 col-md-4">
+      <div className="col-12 col-md-4 printableArea" >
         <table className="table">
           <tbody>
               <tr><td><h5>Tour guide: </h5></td><td><p>{thisTour.tourGuide}</p></td></tr>
@@ -42,15 +51,16 @@ export default ({ tours, params }) => {
         
         </table>
 
-        <NavLink to="/Login">
-          <button type="button" className="btn btn-primary">
+
+          <button type="button" className="btn btn-primary" onClick={handleBooking()} >
             Book this experience
           </button>
-        </NavLink>
+
+
       </div>
     </div>
 
-    <div className="row add-padding">
+    <div className="row add-padding printableArea">
       <div className="col-md-8">
         <h5>About this tour</h5>
         <p>{thisTour.description}</p>
